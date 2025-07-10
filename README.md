@@ -3,13 +3,12 @@ to do: 整理する
 # Multi-IMU Add-on Board driver
 ROS 2 driver for Multi-IMU Add-on board for SONY SPRESENSE
 
-
 # Firmware Install
 
-- Arduino IDE
-
+- Use Arduino IDE
 ## 公式の手順に従って環境設定を行う
 - https://developer.sony.com/spresense/development-guides/arduino_set_up_ja　(1.3. USB ドライバのインストールまででよい)
+- ファームウェア書き込みに限っては実際にMulti-IMU Add-on Boardを使う装置でなくてもよい。
 
 ## ファームウェア書き込み
 
@@ -67,11 +66,26 @@ sudo ldconfig
 Madgwickフィルタ
 ```
 sudo apt install ros-humble-imu-filter-madgwick
-
 ```
 
+#　インストール（humble環境）
 
-# 参考
+## 注意
+- docker環境の場合、docker exec -it --privilegedをつけて実行すること
+
+```
+git clone THIS_REPO
+cd cxd5602pwbimu_ros2_driver
+colcon build
+```
+## 起動
+rviz2も起動する。
+```
+source install/setup.bash
+ros2 launch cxd5602pwbimu_driver_bringup cxd5602pwbimu.launch.py device:=/dev/PATH_TO_DEVICE
+```
+
+# 値
 ## Multi-IMU Add-on Board raw output
 静置時の値
 ```
@@ -134,7 +148,7 @@ linear_acceleration_covariance:
 - 0.0
 - 0.0
 ---
-
+```
 ```
 root@ubuntu:~/ros2_ws# ros2 topic echo /imu/data_raw --once
 header:
@@ -186,8 +200,7 @@ linear_acceleration_covariance:
 - 0.0
 - 0.0
 ---
-
-
+```
 ## unitree go2 mcu imu
 https://techshare.co.jp/faq/unitree/mid360-on-go2_fast-lio.html#3-2_FAST-LIOIMU
 ```
