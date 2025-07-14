@@ -12,18 +12,19 @@ from nav_msgs.msg import Path
 from geometry_msgs.msg import PoseStamped
 import tf_transformations
 import math
+import numpy as np
 
-class OrientationTrajectoryNode(Node):
+class RobotTrajectoryNode(Node):
     def __init__(self):
-        super().__init__('orientation_trajectory_node')
+        super().__init__('robot_trajectory_node')
         
         # Subscribe to filtered IMU data from Madgwick filter
         self.imu_subscriber = self.create_subscription(
             Imu, '/imu/data', self.imu_callback, 10)
         
         # Publishers
-        self.trajectory_publisher = self.create_publisher(Path, '/imu/orientation_trajectory', 10)
-        self.pose_publisher = self.create_publisher(PoseStamped, '/imu/orientation_pose', 10)
+        self.trajectory_publisher = self.create_publisher(Path, '/robot/trajectory', 10)
+        self.pose_publisher = self.create_publisher(PoseStamped, '/robot/pose', 10)
         
         # Initialize path
         self.path = Path()
@@ -34,52 +35,87 @@ class OrientationTrajectoryNode(Node):
         self.position_y = 0.0
         self.position_z = 0.0
         
-        # Previous orientation values
-        self.prev_roll = 0.0
-        self.prev_pitch = 0.0
-        self.prev_yaw = 0.0
-        self.first_callback = True
+        # Initialize velocity
+        self.velocity_x = 0.0
+        self.velocity_y = 0.0
+        self.velocity_z = 0.0
+        
+        # Previous values
+        self.prev_time = None
+        self.prev_linear_accel = np.array([0.0, 0.0, 0.0])
         
         # Parameters
-        self.declare_parameter('movement_scale', 1.0)
-        self.declare_parameter('max_path_length', 1000)
+        self.declare_parameter('velocity_decay', 0.95)  # 速度減衰
+        self.declare_parameter('accel_threshold', 0.5)  # 加速度閾値
+        self.declare_parameter('max_path_length', 2000)
+        self.declare_parameter('update_rate', 50)  # Hz
         
-        self.movement_scale = self.get_parameter('movement_scale').value
+        self.velocity_decay = self.get_parameter('velocity_decay').value
+        self.accel_threshold = self.get_parameter('accel_threshold').value
         self.max_path_length = self.get_parameter('max_path_length').value
+        self.update_rate = self.get_parameter('update_rate').value
         
-        self.get_logger().info('Orientation Trajectory Node started')
+        self.get_logger().info('Robot Trajectory Node started')
     
     def imu_callback(self, msg):
+        current_time = msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
+        
+        # Skip first callback to establish baseline
+        if self.prev_time is None:
+            self.prev_time = current_time
+            return
+            
+        # Calculate time delta
+        dt = current_time - self.prev_time
+        if dt <= 0 or dt > 0.1:  # Skip invalid time deltas
+            self.prev_time = current_time
+            return
+        
         # Get orientation from Madgwick filter
         orientation = msg.orientation
-        
-        # Convert quaternion to Euler angles
         quaternion = [orientation.x, orientation.y, orientation.z, orientation.w]
         euler = tf_transformations.euler_from_quaternion(quaternion)
         roll, pitch, yaw = euler
         
-        # Skip first callback to establish baseline
-        if self.first_callback:
-            self.prev_roll = roll
-            self.prev_pitch = pitch
-            self.prev_yaw = yaw
-            self.first_callback = False
-            return
+        # Get linear acceleration and remove gravity using orientation
+        linear_accel = np.array([
+            msg.linear_acceleration.x,
+            msg.linear_acceleration.y,
+            msg.linear_acceleration.z
+        ])
         
-        # Calculate orientation deltas
-        d_roll = roll - self.prev_roll
-        d_pitch = pitch - self.prev_pitch
-        d_yaw = yaw - self.prev_yaw
+        # Transform acceleration to world frame (remove gravity)
+        # Create rotation matrix from quaternion
+        rotation_matrix = tf_transformations.quaternion_matrix(quaternion)[:3, :3]
         
-        # Handle angle wrapping
-        d_roll = self.normalize_angle(d_roll)
-        d_pitch = self.normalize_angle(d_pitch)
-        d_yaw = self.normalize_angle(d_yaw)
+        # Gravity vector in world frame
+        gravity_world = np.array([0.0, 0.0, -9.81])
         
-        # Update position based on orientation changes
-        self.position_x += d_pitch * self.movement_scale  # Pitch -> X movement
-        self.position_y += d_roll * self.movement_scale   # Roll -> Y movement
-        self.position_z += d_yaw * self.movement_scale    # Yaw -> Z movement
+        # Transform gravity to body frame
+        gravity_body = rotation_matrix.T @ gravity_world
+        
+        # Remove gravity from acceleration
+        world_accel = linear_accel - gravity_body
+        
+        # Apply simple filtering to reduce noise
+        filtered_accel = 0.1 * world_accel + 0.9 * self.prev_linear_accel
+        
+        # Only integrate if acceleration is significant
+        if np.linalg.norm(filtered_accel) > self.accel_threshold:
+            # Integrate acceleration to get velocity
+            self.velocity_x += filtered_accel[0] * dt
+            self.velocity_y += filtered_accel[1] * dt
+            self.velocity_z += filtered_accel[2] * dt
+        
+        # Apply velocity decay to prevent drift
+        self.velocity_x *= self.velocity_decay
+        self.velocity_y *= self.velocity_decay
+        self.velocity_z *= self.velocity_decay
+        
+        # Integrate velocity to get position
+        self.position_x += self.velocity_x * dt
+        self.position_y += self.velocity_y * dt
+        self.position_z += self.velocity_z * dt
         
         # Create pose stamped message
         pose_stamped = PoseStamped()
@@ -93,21 +129,28 @@ class OrientationTrajectoryNode(Node):
         # Publish current pose
         self.pose_publisher.publish(pose_stamped)
         
-        # Add to path
-        self.path.header.stamp = msg.header.stamp
-        self.path.poses.append(pose_stamped)
-        
-        # Limit path length
-        if len(self.path.poses) > self.max_path_length:
-            self.path.poses.pop(0)
+        # Add to path (only if significant movement)
+        if len(self.path.poses) == 0 or self.calculate_distance(pose_stamped, self.path.poses[-1]) > 0.01:
+            self.path.header.stamp = msg.header.stamp
+            self.path.poses.append(pose_stamped)
+            
+            # Limit path length
+            if len(self.path.poses) > self.max_path_length:
+                self.path.poses.pop(0)
         
         # Publish trajectory
         self.trajectory_publisher.publish(self.path)
         
         # Update previous values
-        self.prev_roll = roll
-        self.prev_pitch = pitch
-        self.prev_yaw = yaw
+        self.prev_time = current_time
+        self.prev_linear_accel = filtered_accel
+    
+    def calculate_distance(self, pose1, pose2):
+        """Calculate Euclidean distance between two poses"""
+        dx = pose1.pose.position.x - pose2.pose.position.x
+        dy = pose1.pose.position.y - pose2.pose.position.y
+        dz = pose1.pose.position.z - pose2.pose.position.z
+        return math.sqrt(dx*dx + dy*dy + dz*dz)
     
     def normalize_angle(self, angle):
         """Normalize angle to [-pi, pi]"""
@@ -119,7 +162,7 @@ class OrientationTrajectoryNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = OrientationTrajectoryNode()
+    node = RobotTrajectoryNode()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

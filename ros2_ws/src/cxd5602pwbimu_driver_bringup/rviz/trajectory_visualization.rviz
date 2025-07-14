@@ -96,7 +96,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /imu/orientation_trajectory
+        Value: /robot/trajectory
       Value: true
     - Acceleration properties:
         Acc. vector alpha: 1
@@ -138,7 +138,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /imu/orientation_pose
+        Value: /robot/pose
       Value: true
   Enabled: true
   Global Options:
