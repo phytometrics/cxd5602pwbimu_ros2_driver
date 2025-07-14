@@ -341,7 +341,7 @@ export DYLD_LIBRARY_PATH=$PWD/install/imu_trajectory_filter/lib:$PWD/install/h6x
 export DYLD_LIBRARY_PATH=/usr/local/lib:${DYLD_LIBRARY_PATH}
 
 
-ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py dev:=/dev/tty.usbserial-1130
+ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/tty.usbserial-1130
 
 ## RViz2で軌跡表示
 rviz2 -d src/imu_trajectory_filter/rviz/trajectory_view.rviz
