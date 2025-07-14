@@ -19,7 +19,7 @@ import serial
 import crc8
 
 # ========= 環境設定 =========================================
-PORT     = "/dev/cu.usbserial-1110"   # ← Spresense のポート名に変更
+PORT     = "/dev/cu.usbserial-1130"   # ← Spresense のポート名に変更
 BAUDRATE = 115_200
 TIMEOUT  = 1.0                        # [s] read() タイムアウト
 # ===========================================================

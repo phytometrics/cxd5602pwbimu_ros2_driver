@@ -4,3 +4,5 @@ ros2_ws/logs/
 
 ros2_ws/src/h6x_serial_interface/
 ros2_ws/imu_tools/
+
+libserial/
