@@ -21,7 +21,7 @@ Cxd5602pwbimuDriverNode::Cxd5602pwbimuDriverNode(const rclcpp::NodeOptions & opt
 
   imu_ = std::make_unique<ImuClass>();
   publisher_ = this->create_publisher<sensor_msgs::msg::Imu>(
-    "/imu/data_raw", rclcpp::SensorDataQoS());
+    "/imu/data_raw", rclcpp::SensorDataQoS().reliable());
 
   if (!this->port_handler_.configure(baudrate, timeout_ms)) {
     RCLCPP_ERROR(this->get_logger(), "Failed to configure serial port");
