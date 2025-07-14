@@ -28,6 +28,7 @@ setup(
     extras_require={'testing': ['pytest']},
     entry_points={
         'console_scripts': [
+            'orientation_trajectory_node = cxd5602pwbimu_driver_bringup.orientation_trajectory_node:main',
         ],
     },
 )
