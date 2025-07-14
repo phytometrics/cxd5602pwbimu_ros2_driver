@@ -10,7 +10,22 @@ from rclpy.node import Node
 from sensor_msgs.msg import Imu
 from nav_msgs.msg import Path
 from geometry_msgs.msg import PoseStamped
-import tf_transformations
+try:
+    from tf_transformations import euler_from_quaternion, quaternion_matrix
+except ImportError:
+    # Fallback for ROS2 Humble
+    from scipy.spatial.transform import Rotation as R
+    def euler_from_quaternion(quaternion):
+        """Convert quaternion to Euler angles"""
+        rotation = R.from_quat([quaternion[0], quaternion[1], quaternion[2], quaternion[3]])
+        return rotation.as_euler('xyz', degrees=False)
+    
+    def quaternion_matrix(quaternion):
+        """Convert quaternion to rotation matrix"""
+        rotation = R.from_quat([quaternion[0], quaternion[1], quaternion[2], quaternion[3]])
+        matrix = np.eye(4)
+        matrix[:3, :3] = rotation.as_matrix()
+        return matrix
 import math
 import numpy as np
 import signal
@@ -77,7 +92,7 @@ class RobotTrajectoryNode(Node):
         # Get orientation from Madgwick filter
         orientation = msg.orientation
         quaternion = [orientation.x, orientation.y, orientation.z, orientation.w]
-        euler = tf_transformations.euler_from_quaternion(quaternion)
+        euler = euler_from_quaternion(quaternion)
         roll, pitch, yaw = euler
         
         # Get linear acceleration and remove gravity using orientation
@@ -89,7 +104,7 @@ class RobotTrajectoryNode(Node):
         
         # Transform acceleration to world frame (remove gravity)
         # Create rotation matrix from quaternion
-        rotation_matrix = tf_transformations.quaternion_matrix(quaternion)[:3, :3]
+        rotation_matrix = quaternion_matrix(quaternion)[:3, :3]
         
         # Gravity vector in world frame
         gravity_world = np.array([0.0, 0.0, -9.81])
