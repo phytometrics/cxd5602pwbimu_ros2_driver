@@ -71,6 +71,10 @@ void Cxd5602pwbimuDriverNode::timerCallback()
     msg->header.frame_id = "imu";
     msg->header.stamp.sec = sec + time_offset_;
     msg->header.stamp.nanosec = msec * 1000000;
+    
+    // Debug: Log raw timestamp values
+    RCLCPP_DEBUG(this->get_logger(), "Raw timestamp: sec=%u, msec=%u, final_sec=%u, final_nanosec=%u", 
+                 sec, msec, msg->header.stamp.sec, msg->header.stamp.nanosec);
 
     // Validate timestamp progression
     static rclcpp::Time last_timestamp;
