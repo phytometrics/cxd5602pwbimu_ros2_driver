@@ -1,7 +1,10 @@
-to do: 整理する
-
 # Multi-IMU Add-on Board driver
 ROS 2 driver for Multi-IMU Add-on board for SONY SPRESENSE
+
+## Recent Updates
+- **2025-01-14**: Fixed timestamp synchronization issues causing filter resets
+- **2025-01-14**: Added ROS 2 Humble compatibility for message_filters
+- **2025-01-14**: Improved IMU data filtering stability
 
 # Firmware Install
 
@@ -83,6 +86,17 @@ rviz2も起動する。
 ```
 source install/setup.bash
 ros2 launch cxd5602pwbimu_driver_bringup cxd5602pwbimu.launch.py dev:=/dev/PATH_TO_DEVICE
+```
+
+## IMU Filtering
+IMU軌跡フィルタを使用してデータを平滑化:
+```
+ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/ttyUSB0
+```
+
+## RViz2で軌跡表示
+```
+rviz2 -d src/imu_trajectory_filter/rviz/trajectory_view.rviz
 ```
 
 # 値
@@ -347,6 +361,14 @@ ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/t
 
 ## RViz2で軌跡表示
 rviz2 -d src/imu_trajectory_filter/rviz/trajectory_view.rviz
+
+## Known Issues and Solutions
+### Large timestamp gap warnings
+以前のバージョンでは、ファームウェアのタイムスタンプが不正確でフィルタリングが機能しない問題がありました。
+現在のバージョンでは、ROS2の現在時刻を使用してこの問題を解決しています。
+
+### ROS 2 Humble compatibility
+imu_tools submoduleでmessage_filters::Subscriberのコンストラクタに関する互換性問題が修正されています。
 
 lsof | grep tty.usbserial
 
