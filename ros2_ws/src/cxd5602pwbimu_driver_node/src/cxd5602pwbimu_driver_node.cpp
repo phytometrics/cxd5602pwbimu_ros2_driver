@@ -76,6 +76,9 @@ void Cxd5602pwbimuDriverNode::timerCallback()
     RCLCPP_DEBUG(this->get_logger(), "Raw timestamp: sec=%u, msec=%u, final_sec=%u, final_nanosec=%u", 
                  sec, msec, msg->header.stamp.sec, msg->header.stamp.nanosec);
 
+    // Use current time instead of firmware timestamp for now
+    msg->header.stamp = this->get_clock()->now();
+    
     // Validate timestamp progression
     static rclcpp::Time last_timestamp;
     rclcpp::Time current_timestamp = msg->header.stamp;
