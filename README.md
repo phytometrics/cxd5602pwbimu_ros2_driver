@@ -321,6 +321,8 @@ linear_acceleration_covariance:
 - libserialのビルドをこのレポジトリ外でやる。
 - brew install doxygen.
 
+
+
 ```
 git clone https://github.com/ccny-ros-pkg/imu_tools.git -b humble
 cd ..
@@ -341,9 +343,15 @@ export DYLD_LIBRARY_PATH=$PWD/install/imu_trajectory_filter/lib:$PWD/install/h6x
 export DYLD_LIBRARY_PATH=/usr/local/lib:${DYLD_LIBRARY_PATH}
 
 
-ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/tty.usbserial-1130
+ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/tty.usbserial-1110
 
 ## RViz2で軌跡表示
 rviz2 -d src/imu_trajectory_filter/rviz/trajectory_view.rviz
 
 lsof | grep tty.usbserial
+
+
+colcon build --cmake-args \
+  -DCMAKE_PREFIX_PATH=/usr/local \
+  -DCMAKE_CXX_FLAGS="-I/usr/local/include" \
+  -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/lib"

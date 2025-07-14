@@ -1,0 +1,27 @@
+[0.023s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/imu_tools': AMENT_PREFIX_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter:/opt/homebrew/opt/qt@5:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) DYLD_LIBRARY_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter/lib:${DYLD_LIBRARY_PATH} SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_tools/imu_tools -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_tools
+[0.049s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.049s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.049s]   CMake.
+[0.049s] 
+[0.049s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.049s]   to tell CMake that the project requires at least <min> but has been updated
+[0.049s]   to work with policies introduced by <max> or earlier.
+[0.049s] 
+[0.049s] 
+[0.173s] -- The C compiler identification is Clang 18.1.8
+[0.324s] -- The CXX compiler identification is Clang 18.1.8
+[0.350s] -- Detecting C compiler ABI info
+[0.515s] -- Detecting C compiler ABI info - done
+[0.520s] -- Check for working C compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang - skipped
+[0.520s] -- Detecting C compile features
+[0.521s] -- Detecting C compile features - done
+[0.525s] -- Detecting CXX compiler ABI info
+[0.687s] -- Detecting CXX compiler ABI info - done
+[0.692s] -- Check for working CXX compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang++ - skipped
+[0.692s] -- Detecting CXX compile features
+[0.693s] -- Detecting CXX compile features - done
+[0.702s] -- Found ament_cmake: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake/cmake)
+[0.801s] -- Found Python3: /Users/yosuke/miniforge3/envs/ros_env/bin/python3 (found version "3.11.13") found components: Interpreter
+[0.993s] -- Configuring done (1.0s)
+[1.000s] -- Generating done (0.0s)
+[1.000s] -- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/imu_tools

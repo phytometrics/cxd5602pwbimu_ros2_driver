@@ -1,0 +1,98 @@
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Found ament_cmake_auto: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake_auto/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found ament_lint_auto: 0.12.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface
+[ 33%] Building CXX object CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:7:
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler.hpp:16:
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:22:33: error: allocating an object of abstract class type 'PortHandlerBase'
+   22 |   RCLCPP_UNIQUE_PTR_DEFINITIONS(PortHandlerBase)
+      |                                 ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:27:19: note: unimplemented pure virtual method 'read' in 'PortHandlerBase'
+   27 |   virtual ssize_t read(char * const, const size_t) = 0;
+      |                   ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:28:19: note: unimplemented pure virtual method 'readUntil' in 'PortHandlerBase'
+   28 |   virtual ssize_t readUntil(std::stringstream &, const char) = 0;
+      |                   ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:29:19: note: unimplemented pure virtual method 'write' in 'PortHandlerBase'
+   29 |   virtual ssize_t write(const char * const, const size_t) = 0;
+      |                   ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:16:34: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+   16 |   RCLCPP_INFO(this->getLogger(), dev_.c_str());
+      |                                  ^~~~~~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/logging.hpp:537:7: note: expanded from macro 'RCLCPP_INFO'
+  537 |       __VA_ARGS__); \
+      |       ^~~~~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:510:5: note: expanded from macro 'RCUTILS_LOG_INFO_NAMED'
+  510 |     __VA_ARGS__)
+      |     ^~~~~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:79:64: note: expanded from macro 'RCUTILS_LOG_COND_NAMED'
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |                                                                ^~~~~~~~~~~
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:16:34: note: treat the string as an argument to avoid this
+   16 |   RCLCPP_INFO(this->getLogger(), dev_.c_str());
+      |                                  ^
+      |                                  "%s", 
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/logging.hpp:537:7: note: expanded from macro 'RCLCPP_INFO'
+  537 |       __VA_ARGS__); \
+      |       ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:510:5: note: expanded from macro 'RCUTILS_LOG_INFO_NAMED'
+  510 |     __VA_ARGS__)
+      |     ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:79:64: note: expanded from macro 'RCUTILS_LOG_COND_NAMED'
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |                                                                ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:118:37: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+  118 |     RCLCPP_ERROR(this->getLogger(), e.what());
+      |                                     ^~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/logging.hpp:1407:7: note: expanded from macro 'RCLCPP_ERROR'
+ 1407 |       __VA_ARGS__); \
+      |       ^~~~~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:1004:5: note: expanded from macro 'RCUTILS_LOG_ERROR_NAMED'
+ 1004 |     __VA_ARGS__)
+      |     ^~~~~~~~~~~
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:79:64: note: expanded from macro 'RCUTILS_LOG_COND_NAMED'
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |                                                                ^~~~~~~~~~~
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:118:37: note: treat the string as an argument to avoid this
+  118 |     RCLCPP_ERROR(this->getLogger(), e.what());
+      |                                     ^
+      |                                     "%s", 
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/logging.hpp:1407:7: note: expanded from macro 'RCLCPP_ERROR'
+ 1407 |       __VA_ARGS__); \
+      |       ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:1004:5: note: expanded from macro 'RCUTILS_LOG_ERROR_NAMED'
+ 1004 |     __VA_ARGS__)
+      |     ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rcutils/rcutils/logging_macros.h:79:64: note: expanded from macro 'RCUTILS_LOG_COND_NAMED'
+   79 |       rcutils_log(&__rcutils_logging_location, severity, name, __VA_ARGS__); \
+      |                                                                ^
+2 warnings and 1 error generated.
+make[2]: *** [CMakeFiles/h6x_serial_interface.dir/build.make:93: CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/h6x_serial_interface.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

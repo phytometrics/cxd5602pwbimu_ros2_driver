@@ -1,0 +1,44 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/src/imu_trajectory_filter.cpp:1:
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/include/imu_trajectory_filter/imu_trajectory_filter.hpp:4:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/rclcpp.hpp:155:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executors.hpp:21:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executor.hpp:37:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executor_options.hpp:20:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/memory_strategies.hpp:18:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/memory_strategy.hpp:25:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_executable.hpp:20:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/callback_group.hpp:29:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/subscription_base.hpp:32:
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_subscription_callback.hpp:391:7: warning: 'set_deprecated<sensor_msgs::msg::Imu_<std::allocator<void>>>' is deprecated: use 'void(std::shared_ptr<const MessageT>)' instead [-Wdeprecated-declarations]
+  391 |       set_deprecated(static_cast<typename scbth::callback_type>(callback));
+      |       ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/subscription_factory.hpp:94:29: note: in instantiation of function template specialization 'rclcpp::AnySubscriptionCallback<sensor_msgs::msg::Imu_<std::allocator<void>>>::set<std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>>' requested here
+   94 |   any_subscription_callback.set(std::forward<CallbackT>(callback));
+      |                             ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/create_subscription.hpp:122:26: note: in instantiation of function template specialization 'rclcpp::create_subscription_factory<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, sensor_msgs::msg::Imu_<std::allocator<void>>>' requested here
+  122 |   auto factory = rclcpp::create_subscription_factory<MessageT>(
+      |                          ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/create_subscription.hpp:190:26: note: in instantiation of function template specialization 'rclcpp::detail::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::Node, rclcpp::Node, sensor_msgs::msg::Imu_<std::allocator<void>>>' requested here
+  190 |   return rclcpp::detail::create_subscription<
+      |                          ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/node_impl.hpp:99:18: note: in instantiation of function template specialization 'rclcpp::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::Node>' requested here
+   99 |   return rclcpp::create_subscription<MessageT>(
+      |                  ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/src/imu_trajectory_filter.cpp:17:20: note: in instantiation of function template specialization 'rclcpp::Node::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>>' requested here
+   17 |   imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
+      |                    ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_subscription_callback.hpp:405:5: note: 'set_deprecated<sensor_msgs::msg::Imu_<std::allocator<void>>>' has been explicitly marked deprecated here
+  405 |   [[deprecated("use 'void(std::shared_ptr<const MessageT>)' instead")]]
+      |     ^
+1 warning generated.
+ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored

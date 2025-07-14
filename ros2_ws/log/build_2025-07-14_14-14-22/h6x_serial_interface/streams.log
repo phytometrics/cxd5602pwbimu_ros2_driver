@@ -1,0 +1,21 @@
+[0.025s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface -- -j10 -l10
+[0.188s] [ 33%] Building CXX object CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o
+[1.094s] In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:7:
+[1.094s] In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler.hpp:16:
+[1.094s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:22:33: error: allocating an object of abstract class type 'PortHandlerBase'
+[1.094s]    22 |   RCLCPP_UNIQUE_PTR_DEFINITIONS(PortHandlerBase)
+[1.094s]       |                                 ^
+[1.094s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:27:19: note: unimplemented pure virtual method 'read' in 'PortHandlerBase'
+[1.094s]    27 |   virtual ssize_t read(char * const, const size_t) = 0;
+[1.094s]       |                   ^
+[1.094s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:28:19: note: unimplemented pure virtual method 'readUntil' in 'PortHandlerBase'
+[1.095s]    28 |   virtual ssize_t readUntil(std::stringstream &, const char) = 0;
+[1.095s]       |                   ^
+[1.095s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/include/h6x_serial_interface/port_handler_base.hpp:29:19: note: unimplemented pure virtual method 'write' in 'PortHandlerBase'
+[1.095s]    29 |   virtual ssize_t write(const char * const, const size_t) = 0;
+[1.095s]       |                   ^
+[1.371s] 1 error generated.
+[1.376s] make[2]: *** [CMakeFiles/h6x_serial_interface.dir/build.make:93: CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o] Error 1
+[1.376s] make[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/h6x_serial_interface.dir/all] Error 2
+[1.377s] make: *** [Makefile:146: all] Error 2
+[1.378s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface -- -j10 -l10

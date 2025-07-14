@@ -1,0 +1,15 @@
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored
+ld: library not found for -lserial
+arm64-apple-darwin20.0: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/h6x_serial_interface.dir/build.make:179: libh6x_serial_interface.dylib] Error 1
+make[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/h6x_serial_interface.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

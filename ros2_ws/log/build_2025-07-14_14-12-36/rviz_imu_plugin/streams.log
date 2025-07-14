@@ -1,0 +1,64 @@
+[0.022s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/rviz_imu_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_tools/rviz_imu_plugin -DCMAKE_PREFIX_PATH=/usr/local -DCMAKE_CXX_FLAGS=-I/usr/local/include -DCMAKE_EXE_LINKER_FLAGS=-L/usr/local/lib -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin
+[0.047s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.047s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.048s]   CMake.
+[0.048s] 
+[0.048s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.048s]   to tell CMake that the project requires at least <min> but has been updated
+[0.048s]   to work with policies introduced by <max> or earlier.
+[0.048s] 
+[0.048s] 
+[0.202s] -- The C compiler identification is Clang 18.1.8
+[0.388s] -- The CXX compiler identification is Clang 18.1.8
+[0.422s] -- Detecting C compiler ABI info
+[0.661s] -- Detecting C compiler ABI info - done
+[0.667s] -- Check for working C compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang - skipped
+[0.667s] -- Detecting C compile features
+[0.667s] -- Detecting C compile features - done
+[0.671s] -- Detecting CXX compiler ABI info
+[0.926s] -- Detecting CXX compiler ABI info - done
+[0.934s] -- Check for working CXX compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang++ - skipped
+[0.934s] -- Detecting CXX compile features
+[0.935s] -- Detecting CXX compile features - done
+[0.959s] -- Found ament_cmake: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake/cmake)
+[1.133s] -- Found Python3: /Users/yosuke/miniforge3/envs/ros_env/bin/python3 (found version "3.11.13") found components: Interpreter
+[1.571s] -- Found message_filters: 4.3.5 (/Users/yosuke/miniforge3/envs/ros_env/share/message_filters/cmake)
+[1.917s] -- Found rosidl_generator_c: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_c/cmake)
+[1.968s] -- Found rosidl_adapter: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_adapter/cmake)
+[2.030s] -- Found rosidl_generator_cpp: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_cpp/cmake)
+[2.087s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.187s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.541s] -- Checking for module 'yaml-0.1'
+[2.924s] --   Found yaml-0.1, version 0.2.5
+[3.758s] -- Found rmw_implementation_cmake: 6.1.2 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_implementation_cmake/cmake)
+[3.779s] -- Found rmw_fastrtps_cpp: 6.2.7 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_fastrtps_cpp/cmake)
+[5.022s] -- Found OpenSSL: /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib (found version "3.5.1")
+[5.161s] -- Found FastRTPS: /Users/yosuke/miniforge3/envs/ros_env/include
+[5.278s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[5.314s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[5.548s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[5.549s] -- Found Threads: TRUE
+[5.919s] -- Found rviz_common: 11.2.15 (/Users/yosuke/miniforge3/envs/ros_env/share/rviz_common/cmake)
+[5.960s] -- Setting assimp_DIR to: '/Users/yosuke/miniforge3/envs/ros_env/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[5.998s] -- Setting OGRE_DIR to: '/Users/yosuke/miniforge3/envs/ros_env/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/CMake'
+[6.000s] -- Found OGRE
+[6.000s] --   static     : OFF
+[6.000s] --   components : MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[6.000s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI;Codec_FreeImage
+[6.000s] --   media      : /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/Media
+[6.000s] -- OGRE_LIBRARIES: OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[6.000s] -- OGRE_LIBRARY_DIRS: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib
+[6.000s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI;Codec_FreeImage
+[6.000s] -- OGRE_PLUGIN_DIR: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib/OGRE
+[6.000s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib/libOgreOverlay.dylib
+[6.000s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib/libOgreOverlay.dylib
+[6.000s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib/libOgreMain.dylib
+[6.001s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib/libOgreMain.dylib
+[6.331s] -- Found ZLIB: /Users/yosuke/miniforge3/envs/ros_env/lib/libz.dylib (found version "1.3.1")
+[6.399s] -- Found OpenGL: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework
+[8.465s] -- library: /Users/yosuke/miniforge3/envs/ros_env/lib/libcurl.dylib
+[8.633s] -- Found Eigen3: TRUE (found version "3.4.0")
+[8.633s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[8.908s] -- Configuring done (8.9s)
+[8.970s] -- Generating done (0.1s)
+[8.970s] -- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/rviz_imu_plugin

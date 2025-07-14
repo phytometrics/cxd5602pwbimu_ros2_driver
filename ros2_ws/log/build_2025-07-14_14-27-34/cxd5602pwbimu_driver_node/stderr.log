@@ -1,0 +1,12 @@
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+error: /Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: no LC_RPATH load command with path: /Users/yosuke/miniforge3/envs/ros_env/lib found in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib/cxd5602pwbimu_driver_node/cxd5602pwbimu_driver_node_exec (for architecture arm64), required for specified option "-delete_rpath /Users/yosuke/miniforge3/envs/ros_env/lib"
+error: /Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: no LC_RPATH load command with path: /Users/yosuke/miniforge3/envs/ros_env/lib found in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib/libcxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dylib (for architecture arm64), required for specified option "-delete_rpath /Users/yosuke/miniforge3/envs/ros_env/lib"
+error: /Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: no LC_RPATH load command with path: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface/lib found in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib/libcxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dylib (for architecture arm64), required for specified option "-delete_rpath /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface/lib"

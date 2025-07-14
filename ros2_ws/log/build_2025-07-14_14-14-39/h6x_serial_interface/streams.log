@@ -1,0 +1,24 @@
+[0.022s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface -- -j10 -l10
+[0.183s] [ 33%] Building CXX object CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o
+[1.064s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:87:7: warning: variable 'c' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+[1.064s]    87 |   if (!this->checkPort()) {
+[1.064s]       |       ^~~~~~~~~~~~~~~~~~
+[1.064s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:94:12: note: uninitialized use occurs here
+[1.064s]    94 |     while (c != delimiter) {
+[1.064s]       |            ^
+[1.064s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:87:3: note: remove the 'if' if its condition is always true
+[1.064s]    87 |   if (!this->checkPort()) {
+[1.064s]       |   ^~~~~~~~~~~~~~~~~~~~~~~
+[1.064s] /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_serial_interface/src/port_handler.cpp:92:9: note: initialize the variable 'c' to silence this warning
+[1.064s]    92 |   char c;
+[1.064s]       |         ^
+[1.064s]       |          = '\0'
+[1.381s] 1 warning generated.
+[1.402s] [ 66%] Linking CXX shared library libh6x_serial_interface.dylib
+[1.433s] ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored
+[1.433s] ld: library not found for -lserial
+[1.434s] arm64-apple-darwin20.0: error: linker command failed with exit code 1 (use -v to see invocation)
+[1.435s] make[2]: *** [CMakeFiles/h6x_serial_interface.dir/build.make:179: libh6x_serial_interface.dylib] Error 1
+[1.435s] make[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/h6x_serial_interface.dir/all] Error 2
+[1.436s] make: *** [Makefile:146: all] Error 2
+[1.437s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_serial_interface -- -j10 -l10

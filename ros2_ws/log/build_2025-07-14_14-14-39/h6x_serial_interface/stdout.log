@@ -1,0 +1,2 @@
+[ 33%] Building CXX object CMakeFiles/h6x_serial_interface.dir/src/port_handler.cpp.o
+[ 66%] Linking CXX shared library libh6x_serial_interface.dylib

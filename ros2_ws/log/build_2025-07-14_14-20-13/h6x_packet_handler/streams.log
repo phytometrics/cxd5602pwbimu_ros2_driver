@@ -1,0 +1,81 @@
+[0.027s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler -DCMAKE_PREFIX_PATH=/usr/local -DCMAKE_CXX_FLAGS=-I/usr/local/include -DCMAKE_EXE_LINKER_FLAGS=-L/usr/local/lib -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler
+[0.047s] CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[0.047s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.047s]   CMake.
+[0.047s] 
+[0.047s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.047s]   to tell CMake that the project requires at least <min> but has been updated
+[0.047s]   to work with policies introduced by <max> or earlier.
+[0.047s] 
+[0.047s] 
+[0.109s] -- Found ament_cmake_auto: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake_auto/cmake)
+[0.357s] -- Found ament_lint_auto: 0.12.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_lint_auto/cmake)
+[0.434s] -- Found gmock sources under '/Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor': C++ tests using 'Google Mock' will be built
+[0.435s] CMake Deprecation Warning at /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/CMakeLists.txt:2 (cmake_minimum_required):
+[0.435s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.435s]   CMake.
+[0.435s] 
+[0.435s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.435s]   to tell CMake that the project requires at least <min> but has been updated
+[0.435s]   to work with policies introduced by <max> or earlier.
+[0.435s] 
+[0.435s] 
+[0.436s] -- Found gtest sources under '/Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[0.437s] CMake Deprecation Warning at /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/CMakeLists.txt:2 (cmake_minimum_required):
+[0.437s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.437s]   CMake.
+[0.437s] 
+[0.437s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.437s]   to tell CMake that the project requires at least <min> but has been updated
+[0.437s]   to work with policies introduced by <max> or earlier.
+[0.437s] 
+[0.437s] 
+[0.444s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.445s] -- Configured cppcheck include dirs: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler/include
+[0.445s] -- Configured cppcheck exclude dirs and/or files: 
+[0.447s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.448s] -- Configured cpplint exclude dirs and/or files: 
+[0.449s] -- Added test 'lint_cmake' to check CMake code style
+[0.449s] -- Added test 'xmllint' to check XML markup files
+[0.451s] -- Configuring done (0.4s)
+[0.483s] -- Generating done (0.0s)
+[0.483s] -- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler
+[0.490s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler -DCMAKE_PREFIX_PATH=/usr/local -DCMAKE_CXX_FLAGS=-I/usr/local/include -DCMAKE_EXE_LINKER_FLAGS=-L/usr/local/lib -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler
+[0.491s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler -- -j10 -l10
+[0.615s] [ 25%] Built target h6x_packet_handler
+[0.619s] [ 41%] Built target gmock_main
+[0.624s] [ 66%] Built target gmock
+[0.692s] [ 83%] Built target test_crc_handler
+[0.700s] [100%] Built target test_hex_handler
+[0.716s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler -- -j10 -l10
+[0.997s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --install /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler
+[1.010s] -- Install configuration: ""
+[1.010s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/hex_handler.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/packet_state_base.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/rx_packet_base.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/crc_handler.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_ascii_packet.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/rx_ascii_packet.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_packet_base.hpp
+[1.011s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_rx_packet_base.hpp
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/lib/libh6x_packet_handler.dylib
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/package_run_dependencies/h6x_packet_handler
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/parent_prefix_path/h6x_packet_handler
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/ament_prefix_path.sh
+[1.012s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/ament_prefix_path.dsv
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/path.sh
+[1.012s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/path.dsv
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.bash
+[1.012s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.sh
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.zsh
+[1.013s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.dsv
+[1.013s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/package.dsv
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/packages/h6x_packet_handler
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/ament_cmake_export_libraries-extras.cmake
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/h6x_packet_handlerConfig.cmake
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/h6x_packet_handlerConfig-version.cmake
+[1.013s] -- Up-to-date: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/package.xml
+[1.014s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=3 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --install /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler

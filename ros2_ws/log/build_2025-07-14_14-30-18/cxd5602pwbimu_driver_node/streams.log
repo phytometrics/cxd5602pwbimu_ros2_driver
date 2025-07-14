@@ -1,0 +1,51 @@
+[0.023s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/cxd5602pwbimu_driver_node': CMAKE_PREFIX_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_tools:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler:/usr/local:/opt/homebrew/opt/qt@5:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) DYLD_LIBRARY_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/lib:/Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/cxd5602pwbimu_driver_node -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node
+[0.044s] CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[0.044s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.044s]   CMake.
+[0.044s] 
+[0.044s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.044s]   to tell CMake that the project requires at least <min> but has been updated
+[0.044s]   to work with policies introduced by <max> or earlier.
+[0.044s] 
+[0.044s] 
+[0.158s] -- The C compiler identification is Clang 18.1.8
+[0.300s] -- The CXX compiler identification is Clang 18.1.8
+[0.326s] -- Detecting C compiler ABI info
+[0.334s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/cxd5602pwbimu_driver_node' returned '-2': CMAKE_PREFIX_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_tools:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler:/usr/local:/opt/homebrew/opt/qt@5:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) DYLD_LIBRARY_PATH=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/rviz_imu_plugin/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_filter_madgwick/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_complementary_filter/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/lib:/Users/yosuke/miniforge3/envs/ros_env/opt/rviz_ogre_vendor/lib SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/cxd5602pwbimu_driver_node -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node
+[0.337s] Traceback (most recent call last):
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_parallel_executor/executor/parallel.py", line 75, in execute
+    loop.run_until_complete(future)
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/asyncio/base_events.py", line 641, in run_until_complete
+    self.run_forever()
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/asyncio/base_events.py", line 608, in run_forever
+    self._run_once()
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/asyncio/base_events.py", line 1898, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/selectors.py", line 566, in select
+    kev_list = self._selector.control(None, max_ev, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_core/executor/__init__.py", line 91, in __call__
+    rc = await self.task(*args, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_core/task/__init__.py", line 93, in __call__
+    return await task_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_ros/task/ament_cmake/build.py", line 59, in build
+    rc = await extension.build(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_cmake/task/cmake/build.py", line 87, in build
+    rc = await self._reconfigure(args, env)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_cmake/task/cmake/build.py", line 182, in _reconfigure
+    buildfile = get_buildfile(cmake_cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yosuke/miniforge3/envs/ros_env/lib/python3.11/site-packages/colcon_cmake/task/cmake/__init__.py", line 114, in get_buildfile
+    if 'Visual Studio' in generator:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable

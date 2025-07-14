@@ -1,0 +1,24 @@
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored
+ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored
+ld: warning: duplicate -rpath '/Users/yosuke/miniforge3/envs/ros_env/lib' ignored
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_read_node_exec
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_read_node_exec'
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_read_until_node_exec
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_read_until_node_exec'
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_write_node_exec
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/h6x_serial_interface_example/simple_write_node_exec'
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_read_node.dylib
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_read_node.dylib'
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_read_until_node.dylib
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_read_until_node.dylib'
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_write_node.dylib
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_serial_interface_example/lib/libh6x_serial_interface_example_simple_write_node.dylib'

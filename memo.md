@@ -102,6 +102,8 @@ ros2 launch cxd5602pwbimu_driver_bringup cxd5602pwbimu.launch.py device:=/dev/tt
 ```bash
 # IMUドライバノードのみ起動
 ros2 run cxd5602pwbimu_driver_node cxd5602pwbimu_driver_node_exec --ros-args -p device:=/dev/ttyUSB0
+export DYLD_LIBRARY_PATH=/Users/yosuke/miniforge3/envs/ros_env/lib:$DYLD_LIBRARY_PATH && echo $DYLD_LIBRARY_PATH             
+ros2 run cxd5602pwbimu_driver_node cxd5602pwbimu_driver_node_exec --ros-args -p device:=/dev/cu.usbserial-1130
 
 # IMUフィルタのみ起動
 ros2 run imu_filter_madgwick imu_filter_madgwick_node --ros-args -p use_mag:=true device:=/dev/ttyUSB0
