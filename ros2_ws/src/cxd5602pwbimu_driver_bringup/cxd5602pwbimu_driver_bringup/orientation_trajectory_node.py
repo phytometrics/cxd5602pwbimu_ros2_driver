@@ -67,11 +67,20 @@ class RobotTrajectoryNode(Node):
         self.declare_parameter('accel_threshold', 0.5)  # 加速度閾値
         self.declare_parameter('max_path_length', 2000)
         self.declare_parameter('update_rate', 50)  # Hz
+        self.declare_parameter('stationary_threshold', 0.1)  # 静止判定閾値
+        self.declare_parameter('stationary_time', 1.0)  # 静止継続時間
         
         self.velocity_decay = self.get_parameter('velocity_decay').value
         self.accel_threshold = self.get_parameter('accel_threshold').value
         self.max_path_length = self.get_parameter('max_path_length').value
         self.update_rate = self.get_parameter('update_rate').value
+        self.stationary_threshold = self.get_parameter('stationary_threshold').value
+        self.stationary_time = self.get_parameter('stationary_time').value
+        
+        # Zero velocity update (ZUPT) variables
+        self.stationary_start_time = None
+        self.low_accel_count = 0
+        self.required_low_accel_count = 20  # 20回連続で低加速度なら静止と判定
         
         self.get_logger().info('Robot Trajectory Node started')
     
@@ -125,22 +134,36 @@ class RobotTrajectoryNode(Node):
         if accel_magnitude > 0.1:  # Only log significant accelerations
             self.get_logger().info(f"Filtered accel: [{filtered_accel[0]:.3f}, {filtered_accel[1]:.3f}, {filtered_accel[2]:.3f}], mag: {accel_magnitude:.3f}")
         
-        # Only integrate if acceleration is significant
-        if accel_magnitude > self.accel_threshold:
-            # Integrate acceleration to get velocity
-            self.velocity_x += filtered_accel[0] * dt
-            self.velocity_y += filtered_accel[1] * dt
-            self.velocity_z += filtered_accel[2] * dt
+        # Zero Velocity Update (ZUPT) - 静止判定
+        if accel_magnitude < self.stationary_threshold:
+            self.low_accel_count += 1
+            if self.low_accel_count >= self.required_low_accel_count:
+                # 静止状態と判定 - 速度をゼロにリセット
+                self.velocity_x = 0.0
+                self.velocity_y = 0.0
+                self.velocity_z = 0.0
+                if self.low_accel_count == self.required_low_accel_count:
+                    self.get_logger().info("Stationary detected - velocity reset to zero")
+        else:
+            self.low_accel_count = 0
             
-            # Debug: Log velocity changes
-            vel_magnitude = np.sqrt(self.velocity_x**2 + self.velocity_y**2 + self.velocity_z**2)
-            if vel_magnitude > 0.1:
-                self.get_logger().info(f"Velocity: [{self.velocity_x:.3f}, {self.velocity_y:.3f}, {self.velocity_z:.3f}], mag: {vel_magnitude:.3f}")
+            # Only integrate if acceleration is significant
+            if accel_magnitude > self.accel_threshold:
+                # Integrate acceleration to get velocity
+                self.velocity_x += filtered_accel[0] * dt
+                self.velocity_y += filtered_accel[1] * dt
+                self.velocity_z += filtered_accel[2] * dt
+                
+                # Debug: Log velocity changes
+                vel_magnitude = np.sqrt(self.velocity_x**2 + self.velocity_y**2 + self.velocity_z**2)
+                if vel_magnitude > 0.1:
+                    self.get_logger().info(f"Velocity: [{self.velocity_x:.3f}, {self.velocity_y:.3f}, {self.velocity_z:.3f}], mag: {vel_magnitude:.3f}")
         
-        # Apply velocity decay to prevent drift
-        self.velocity_x *= self.velocity_decay
-        self.velocity_y *= self.velocity_decay
-        self.velocity_z *= self.velocity_decay
+        # Apply velocity decay to prevent drift (only if not stationary)
+        if self.low_accel_count < self.required_low_accel_count:
+            self.velocity_x *= self.velocity_decay
+            self.velocity_y *= self.velocity_decay
+            self.velocity_z *= self.velocity_decay
         
         # Integrate velocity to get position
         old_pos_x, old_pos_y, old_pos_z = self.position_x, self.position_y, self.position_z
