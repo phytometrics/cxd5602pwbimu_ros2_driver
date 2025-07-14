@@ -1,0 +1,6 @@
+[submodule "ros2_ws/src/h6x_serial_interface"]
+	path = ros2_ws/src/h6x_serial_interface
+	url = https://github.com/phytometrics/h6x_serial_interface.git
+[submodule "ros2_ws/src/imu_tools"]
+	path = ros2_ws/src/imu_tools
+	url = https://github.com/ccny-ros-pkg/imu_tools.git
