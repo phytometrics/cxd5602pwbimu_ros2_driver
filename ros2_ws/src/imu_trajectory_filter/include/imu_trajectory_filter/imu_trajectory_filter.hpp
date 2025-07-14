@@ -31,6 +31,8 @@ private:
   // Filter parameters
   double alpha_;
   double dt_;
+  double max_time_delta_;
+  double warn_time_delta_;
   
   // State variables
   geometry_msgs::msg::Vector3 velocity_;

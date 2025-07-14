@@ -9,10 +9,17 @@ ImuTrajectoryFilter::ImuTrajectoryFilter(const rclcpp::NodeOptions & options)
   this->declare_parameter("alpha", 0.98);
   this->declare_parameter("base_frame", "imu_link");
   this->declare_parameter("odom_frame", "odom");
+  this->declare_parameter("max_time_delta", 2.0);
+  this->declare_parameter("warn_time_delta", 0.1);
   
   alpha_ = this->get_parameter("alpha").as_double();
   base_frame_ = this->get_parameter("base_frame").as_string();
   odom_frame_ = this->get_parameter("odom_frame").as_string();
+  max_time_delta_ = this->get_parameter("max_time_delta").as_double();
+  warn_time_delta_ = this->get_parameter("warn_time_delta").as_double();
+  
+  RCLCPP_INFO(this->get_logger(), "Filter initialized with alpha=%.2f, max_dt=%.2f, warn_dt=%.2f", 
+             alpha_, max_time_delta_, warn_time_delta_);
   
   imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
     "/imu/data_raw", 10,
@@ -55,10 +62,26 @@ void ImuTrajectoryFilter::imuCallback(const sensor_msgs::msg::Imu::SharedPtr msg
   rclcpp::Time current_time = msg->header.stamp;
   dt_ = (current_time - last_time_).seconds();
   
-  if (dt_ <= 0.0 || dt_ > 1.0) {
-    RCLCPP_WARN(this->get_logger(), "Invalid time delta: %f", dt_);
+  // More flexible timestamp validation
+  if (dt_ <= 0.0) {
+    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
+                        "Non-progressive timestamp: dt=%.6f", dt_);
     last_time_ = current_time;
     return;
+  }
+  
+  if (dt_ > max_time_delta_) {
+    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
+                        "Large time gap: dt=%.6f, resetting filter", dt_);
+    // Reset filter state for large gaps
+    velocity_.x = velocity_.y = velocity_.z = 0.0;
+    last_time_ = current_time;
+    return;
+  }
+  
+  if (dt_ > warn_time_delta_) {
+    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000, 
+                        "Unusually large time delta: %.6f", dt_);
   }
   
   // Apply complementary filter to linear acceleration

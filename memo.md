@@ -39,6 +39,7 @@ source /opt/ros/humble/setup.bash
 
 # 依存パッケージのインストール
 sudo apt install ros-humble-imu-filter-madgwick
+sudo apt install ros-humble-rviz-imu-plugin
 ```
 
 ### 2. ワークスペースの作成
@@ -182,3 +183,18 @@ Issues, Pull Requestsを歓迎します。
 2. **PC2（ROS用）**: ファームウェアが書き込まれたSPRESENSEをUSB接続してROS 2ドライバを実行
 
 SPRESENSEのファームウェアは一度書き込まれると保持されるため、別のPCに接続してもそのまま動作します。
+
+
+```
+xhost +local:root
+docker run --privileged -it --name imu_compare \
+             --sig-proxy=true \
+             -e NVIDIA_DRIVER_CAPABILITIES=all \
+             -e DISPLAY=$DISPLAY \
+             -e NVIDIA_VISIBLE_DEVICES=all \
+             --volume="$PWD:/root/ros2_ws/src" \
+             --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw \
+             --net=host \
+             --ipc=host \
+             imu_compare:latest
+```

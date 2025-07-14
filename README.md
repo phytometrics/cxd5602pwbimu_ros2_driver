@@ -343,7 +343,7 @@ export DYLD_LIBRARY_PATH=$PWD/install/imu_trajectory_filter/lib:$PWD/install/h6x
 export DYLD_LIBRARY_PATH=/usr/local/lib:${DYLD_LIBRARY_PATH}
 
 
-ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/tty.usbserial-1110
+ros2 launch imu_trajectory_filter imu_trajectory_filter.launch.py device:=/dev/ttyUSB0
 
 ## RViz2で軌跡表示
 rviz2 -d src/imu_trajectory_filter/rviz/trajectory_view.rviz
@@ -355,3 +355,26 @@ colcon build --cmake-args \
   -DCMAKE_PREFIX_PATH=/usr/local \
   -DCMAKE_CXX_FLAGS="-I/usr/local/include" \
   -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/lib"
+
+
+
+
+  ２回目移行にやるやつ
+
+  ```
+  readlink -f /sys/class/tty/ttyUSB0               # 例: /sys/class/tty/ttyUSB0 -> ../../devices/pci0000:00/0000:00:14.0/usb1/1-3/1-3:1.0/ttyUSB0
+# 末尾の 1-3:1.0 がデバイス ID
+  ```
+
+  ```
+  ID="1-3.2:1.0"                 # 上で得た ID
+echo -n "$ID" | sudo tee /sys/bus/usb/drivers/usb/unbind
+echo -n "$ID" | sudo tee /sys/bus/usb/drivers/usb/bind
+  ```
+
+  ```
+alias usbreset='ID=$(readlink -f /sys/class/tty/ttyUSB0 | sed "s|.*/||"); echo -n $ID | sudo tee /sys/bus/usb/drivers/usb/unbind && echo -n $ID | sudo tee /sys/bus/usb/drivers/usb/bind'
+  ```
+
+
+  sudo apt install ros-humble-rviz-imu-plugin 
