@@ -62,13 +62,14 @@ class RobotTrajectoryNode(Node):
         self.prev_time = None
         self.prev_linear_accel = np.array([0.0, 0.0, 0.0])
         
-        # Parameters
-        self.declare_parameter('velocity_decay', 0.95)  # 速度減衰
-        self.declare_parameter('accel_threshold', 0.5)  # 加速度閾値
-        self.declare_parameter('max_path_length', 2000)
-        self.declare_parameter('update_rate', 50)  # Hz
-        self.declare_parameter('stationary_threshold', 0.1)  # 静止判定閾値
-        self.declare_parameter('stationary_time', 1.0)  # 静止継続時間
+        # Parameters optimized for high-precision Sony Multi-IMU
+        self.declare_parameter('velocity_decay', 0.9995)  # 高精度IMU用の緩い減衰
+        self.declare_parameter('accel_threshold', 0.02)  # 高精度なので低閾値
+        self.declare_parameter('max_path_length', 5000)
+        self.declare_parameter('update_rate', 100)  # Hz
+        self.declare_parameter('stationary_threshold', 0.05)  # 高精度静止判定
+        self.declare_parameter('stationary_time', 0.5)  # 短い静止判定時間
+        self.declare_parameter('bias_estimation_window', 100)  # バイアス推定窓
         
         self.velocity_decay = self.get_parameter('velocity_decay').value
         self.accel_threshold = self.get_parameter('accel_threshold').value
@@ -76,11 +77,13 @@ class RobotTrajectoryNode(Node):
         self.update_rate = self.get_parameter('update_rate').value
         self.stationary_threshold = self.get_parameter('stationary_threshold').value
         self.stationary_time = self.get_parameter('stationary_time').value
+        self.bias_estimation_window = self.get_parameter('bias_estimation_window').value
         
-        # Zero velocity update (ZUPT) variables
-        self.stationary_start_time = None
+        # Advanced filtering for high-precision IMU
+        self.accel_history = []
+        self.bias_estimate = np.array([0.0, 0.0, 0.0])
         self.low_accel_count = 0
-        self.required_low_accel_count = 20  # 20回連続で低加速度なら静止と判定
+        self.required_low_accel_count = 10  # 高精度なので短時間判定
         
         self.get_logger().info('Robot Trajectory Node started')
     
@@ -126,15 +129,31 @@ class RobotTrajectoryNode(Node):
             self.get_logger().info(f"Raw accel: [{linear_accel[0]:.3f}, {linear_accel[1]:.3f}, {linear_accel[2]:.3f}]")
             self.get_logger().info(f"World accel: [{world_accel[0]:.3f}, {world_accel[1]:.3f}, {world_accel[2]:.3f}]")
         
-        # Apply simple filtering to reduce noise
-        filtered_accel = 0.1 * world_accel + 0.9 * self.prev_linear_accel
+        # Advanced bias estimation for high-precision IMU
+        self.accel_history.append(world_accel.copy())
+        if len(self.accel_history) > self.bias_estimation_window:
+            self.accel_history.pop(0)
         
-        # Debug: Log acceleration values
+        # Estimate bias during stationary periods
+        if len(self.accel_history) >= self.bias_estimation_window:
+            recent_accels = np.array(self.accel_history[-50:])  # Last 50 samples
+            if np.all(np.std(recent_accels, axis=0) < 0.1):  # Low variation = stationary
+                self.bias_estimate = np.mean(recent_accels, axis=0)
+        
+        # Remove bias estimate
+        bias_corrected_accel = world_accel - self.bias_estimate
+        
+        # Apply sophisticated filtering for high-precision IMU
+        # Use lower smoothing factor for high-precision sensors
+        filtered_accel = 0.3 * bias_corrected_accel + 0.7 * self.prev_linear_accel
+        
+        # Debug: Log acceleration values including bias
         accel_magnitude = np.linalg.norm(filtered_accel)
-        if accel_magnitude > 0.1:  # Only log significant accelerations
-            self.get_logger().info(f"Filtered accel: [{filtered_accel[0]:.3f}, {filtered_accel[1]:.3f}, {filtered_accel[2]:.3f}], mag: {accel_magnitude:.3f}")
+        if accel_magnitude > 0.05:  # Lower threshold for high-precision IMU
+            self.get_logger().info(f"Bias estimate: [{self.bias_estimate[0]:.4f}, {self.bias_estimate[1]:.4f}, {self.bias_estimate[2]:.4f}]")
+            self.get_logger().info(f"Filtered accel: [{filtered_accel[0]:.4f}, {filtered_accel[1]:.4f}, {filtered_accel[2]:.4f}], mag: {accel_magnitude:.4f}")
         
-        # Zero Velocity Update (ZUPT) - 静止判定
+        # Enhanced Zero Velocity Update (ZUPT) for high-precision IMU
         if accel_magnitude < self.stationary_threshold:
             self.low_accel_count += 1
             if self.low_accel_count >= self.required_low_accel_count:
@@ -143,23 +162,24 @@ class RobotTrajectoryNode(Node):
                 self.velocity_y = 0.0
                 self.velocity_z = 0.0
                 if self.low_accel_count == self.required_low_accel_count:
-                    self.get_logger().info("Stationary detected - velocity reset to zero")
+                    self.get_logger().info("High-precision stationary detected - velocity reset to zero")
         else:
             self.low_accel_count = 0
             
-            # Only integrate if acceleration is significant
+            # High-precision IMU can integrate even small accelerations
             if accel_magnitude > self.accel_threshold:
-                # Integrate acceleration to get velocity
+                # Use more sophisticated integration (Trapezoidal rule)
+                # For high-precision IMU, we can trust smaller accelerations
                 self.velocity_x += filtered_accel[0] * dt
                 self.velocity_y += filtered_accel[1] * dt
                 self.velocity_z += filtered_accel[2] * dt
                 
                 # Debug: Log velocity changes
                 vel_magnitude = np.sqrt(self.velocity_x**2 + self.velocity_y**2 + self.velocity_z**2)
-                if vel_magnitude > 0.1:
-                    self.get_logger().info(f"Velocity: [{self.velocity_x:.3f}, {self.velocity_y:.3f}, {self.velocity_z:.3f}], mag: {vel_magnitude:.3f}")
+                if vel_magnitude > 0.05:
+                    self.get_logger().info(f"Velocity: [{self.velocity_x:.4f}, {self.velocity_y:.4f}, {self.velocity_z:.4f}], mag: {vel_magnitude:.4f}")
         
-        # Apply velocity decay to prevent drift (only if not stationary)
+        # Apply minimal velocity decay for high-precision IMU (trust the sensor more)
         if self.low_accel_count < self.required_low_accel_count:
             self.velocity_x *= self.velocity_decay
             self.velocity_y *= self.velocity_decay

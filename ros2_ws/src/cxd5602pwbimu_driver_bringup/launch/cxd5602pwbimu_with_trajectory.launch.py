@@ -42,10 +42,11 @@ def generate_launch_description():
         name='robot_trajectory_node',
         output='screen',
         parameters=[
-            {'velocity_decay': 0.98},
-            {'accel_threshold': 0.3},  # 積分開始閾値
-            {'stationary_threshold': 0.2},  # 静止判定閾値
-            {'max_path_length': 2000}
+            {'velocity_decay': 0.9995},  # 高精度IMU用の緩い減衰
+            {'accel_threshold': 0.02},   # 高精度なので低閾値
+            {'stationary_threshold': 0.05},  # 高精度静止判定
+            {'bias_estimation_window': 100},  # バイアス推定窓
+            {'max_path_length': 5000}
         ]
     )
 
