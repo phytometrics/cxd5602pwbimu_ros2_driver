@@ -85,6 +85,18 @@ class RobotTrajectoryNode(Node):
         self.low_accel_count = 0
         self.required_low_accel_count = 10  # 高精度なので短時間判定
         
+        # Enhanced trajectory correction
+        self.position_history = []
+        self.velocity_history = []
+        self.last_stationary_position = np.array([0.0, 0.0, 0.0])
+        self.last_stationary_time = None
+        self.trajectory_correction_factor = 0.98  # 軌跡補正係数
+        
+        # Movement detection
+        self.movement_started = False
+        self.movement_threshold = 0.1  # 移動検出閾値
+        self.return_detection_window = 50  # 復帰検出窓
+        
         self.get_logger().info('Robot Trajectory Node started')
     
     def imu_callback(self, msg):
@@ -190,6 +202,42 @@ class RobotTrajectoryNode(Node):
         self.position_x += self.velocity_x * dt
         self.position_y += self.velocity_y * dt
         self.position_z += self.velocity_z * dt
+        
+        # Advanced trajectory correction
+        current_position = np.array([self.position_x, self.position_y, self.position_z])
+        
+        # Record position history
+        self.position_history.append(current_position.copy())
+        if len(self.position_history) > 200:  # Keep last 200 positions
+            self.position_history.pop(0)
+        
+        # Check if we've returned to near the starting position
+        if len(self.position_history) > self.return_detection_window:
+            # If we're stationary and close to start, apply correction
+            if self.low_accel_count >= self.required_low_accel_count:
+                distance_from_start = np.linalg.norm(current_position - self.last_stationary_position)
+                
+                # If we're close to the last stationary position, apply correction
+                if distance_from_start < 0.5 and self.movement_started:
+                    correction_factor = 1.0 - (distance_from_start / 0.5) * 0.3
+                    self.position_x *= correction_factor
+                    self.position_y *= correction_factor
+                    self.position_z *= correction_factor
+                    
+                    self.get_logger().info(f"Return trajectory correction applied: factor={correction_factor:.3f}, distance={distance_from_start:.3f}")
+                    
+                    # Update last stationary position
+                    self.last_stationary_position = np.array([self.position_x, self.position_y, self.position_z])
+                    self.movement_started = False
+                
+                # Record stationary position
+                if self.low_accel_count == self.required_low_accel_count:
+                    self.last_stationary_position = current_position.copy()
+                    
+        # Detect movement start
+        if not self.movement_started and accel_magnitude > self.movement_threshold:
+            self.movement_started = True
+            self.get_logger().info("Movement detected - starting trajectory tracking")
         
         # Debug: Log position changes
         pos_change = np.sqrt((self.position_x - old_pos_x)**2 + (self.position_y - old_pos_y)**2 + (self.position_z - old_pos_z)**2)
