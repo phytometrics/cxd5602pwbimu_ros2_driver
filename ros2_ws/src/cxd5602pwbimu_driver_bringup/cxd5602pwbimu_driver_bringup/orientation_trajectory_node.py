@@ -106,24 +106,36 @@ class RobotTrajectoryNode(Node):
         # Create rotation matrix from quaternion
         rotation_matrix = quaternion_matrix(quaternion)[:3, :3]
         
-        # Gravity vector in world frame
-        gravity_world = np.array([0.0, 0.0, -9.81])
+        # Transform acceleration from body frame to world frame
+        world_accel = rotation_matrix @ linear_accel
         
-        # Transform gravity to body frame
-        gravity_body = rotation_matrix.T @ gravity_world
+        # Remove gravity in world frame (Z-axis is up)
+        world_accel[2] -= 9.81  # Remove gravity from Z-axis
         
-        # Remove gravity from acceleration
-        world_accel = linear_accel - gravity_body
+        # Debug: Log raw and transformed acceleration
+        if np.linalg.norm(world_accel) > 0.1:
+            self.get_logger().info(f"Raw accel: [{linear_accel[0]:.3f}, {linear_accel[1]:.3f}, {linear_accel[2]:.3f}]")
+            self.get_logger().info(f"World accel: [{world_accel[0]:.3f}, {world_accel[1]:.3f}, {world_accel[2]:.3f}]")
         
         # Apply simple filtering to reduce noise
         filtered_accel = 0.1 * world_accel + 0.9 * self.prev_linear_accel
         
+        # Debug: Log acceleration values
+        accel_magnitude = np.linalg.norm(filtered_accel)
+        if accel_magnitude > 0.1:  # Only log significant accelerations
+            self.get_logger().info(f"Filtered accel: [{filtered_accel[0]:.3f}, {filtered_accel[1]:.3f}, {filtered_accel[2]:.3f}], mag: {accel_magnitude:.3f}")
+        
         # Only integrate if acceleration is significant
-        if np.linalg.norm(filtered_accel) > self.accel_threshold:
+        if accel_magnitude > self.accel_threshold:
             # Integrate acceleration to get velocity
             self.velocity_x += filtered_accel[0] * dt
             self.velocity_y += filtered_accel[1] * dt
             self.velocity_z += filtered_accel[2] * dt
+            
+            # Debug: Log velocity changes
+            vel_magnitude = np.sqrt(self.velocity_x**2 + self.velocity_y**2 + self.velocity_z**2)
+            if vel_magnitude > 0.1:
+                self.get_logger().info(f"Velocity: [{self.velocity_x:.3f}, {self.velocity_y:.3f}, {self.velocity_z:.3f}], mag: {vel_magnitude:.3f}")
         
         # Apply velocity decay to prevent drift
         self.velocity_x *= self.velocity_decay
@@ -131,9 +143,15 @@ class RobotTrajectoryNode(Node):
         self.velocity_z *= self.velocity_decay
         
         # Integrate velocity to get position
+        old_pos_x, old_pos_y, old_pos_z = self.position_x, self.position_y, self.position_z
         self.position_x += self.velocity_x * dt
         self.position_y += self.velocity_y * dt
         self.position_z += self.velocity_z * dt
+        
+        # Debug: Log position changes
+        pos_change = np.sqrt((self.position_x - old_pos_x)**2 + (self.position_y - old_pos_y)**2 + (self.position_z - old_pos_z)**2)
+        if pos_change > 0.01:
+            self.get_logger().info(f"Position: [{self.position_x:.3f}, {self.position_y:.3f}, {self.position_z:.3f}], change: {pos_change:.3f}")
         
         # Create pose stamped message
         pose_stamped = PoseStamped()
@@ -148,7 +166,7 @@ class RobotTrajectoryNode(Node):
         self.pose_publisher.publish(pose_stamped)
         
         # Add to path (only if significant movement)
-        if len(self.path.poses) == 0 or self.calculate_distance(pose_stamped, self.path.poses[-1]) > 0.01:
+        if len(self.path.poses) == 0 or self.calculate_distance(pose_stamped, self.path.poses[-1]) > 0.001:
             self.path.header.stamp = msg.header.stamp
             self.path.poses.append(pose_stamped)
             

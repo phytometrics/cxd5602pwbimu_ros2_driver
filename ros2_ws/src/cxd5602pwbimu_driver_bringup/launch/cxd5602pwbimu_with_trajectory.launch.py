@@ -42,8 +42,8 @@ def generate_launch_description():
         name='robot_trajectory_node',
         output='screen',
         parameters=[
-            {'velocity_decay': 0.98},
-            {'accel_threshold': 0.5},
+            {'velocity_decay': 0.99},
+            {'accel_threshold': 0.1},  # 閾値を下げて感度を上げる
             {'max_path_length': 2000}
         ]
     )
