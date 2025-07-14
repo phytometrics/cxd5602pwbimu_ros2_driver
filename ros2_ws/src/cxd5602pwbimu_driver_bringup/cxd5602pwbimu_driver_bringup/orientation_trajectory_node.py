@@ -13,6 +13,9 @@ from geometry_msgs.msg import PoseStamped
 import tf_transformations
 import math
 import numpy as np
+import signal
+import sys
+import atexit
 
 class RobotTrajectoryNode(Node):
     def __init__(self):
@@ -160,12 +163,49 @@ class RobotTrajectoryNode(Node):
             angle += 2 * math.pi
         return angle
 
+# Global variable for node cleanup
+_node_instance = None
+
+def cleanup_node():
+    """Clean up ROS2 node resources"""
+    global _node_instance
+    if _node_instance is not None:
+        print("\nShutting down ROS2 node...")
+        _node_instance.destroy_node()
+        _node_instance = None
+    
+    if rclpy.ok():
+        rclpy.shutdown()
+
+def signal_handler(signum, frame):
+    """Handle SIGINT and SIGTERM signals"""
+    print(f"\nReceived signal {signum}, shutting down...")
+    cleanup_node()
+    sys.exit(0)
+
 def main(args=None):
-    rclpy.init(args=args)
-    node = RobotTrajectoryNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    global _node_instance
+    
+    # Register signal handlers
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    # Register cleanup function for normal exit
+    atexit.register(cleanup_node)
+    
+    try:
+        rclpy.init(args=args)
+        _node_instance = RobotTrajectoryNode()
+        
+        print("Robot trajectory node started. Press Ctrl+C to stop.")
+        rclpy.spin(_node_instance)
+        
+    except KeyboardInterrupt:
+        print("\nStopped by user")
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        cleanup_node()
 
 if __name__ == '__main__':
     main()

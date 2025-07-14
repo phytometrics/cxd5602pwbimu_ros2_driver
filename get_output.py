@@ -17,6 +17,9 @@ Spresense CXD5602 Multi-IMU 受信スクリプト  (CRC 検証付き)
 import struct
 import serial
 import crc8
+import signal
+import sys
+import atexit
 
 # ========= 環境設定 =========================================
 PORT     = "/dev/cu.usbserial-1130"   # ← Spresense のポート名に変更
@@ -34,41 +37,83 @@ def crc8_maxim(data: bytes) -> int:
     h.update(data)
     return h.digest()[0]
 
+# Global variable for serial port cleanup
+_serial_port = None
+
+def cleanup_serial():
+    """Clean up serial port resources"""
+    global _serial_port
+    if _serial_port and _serial_port.is_open:
+        print("\nClosing serial port...")
+        _serial_port.close()
+        _serial_port = None
+
+def signal_handler(signum, frame):
+    """Handle SIGINT and SIGTERM signals"""
+    print(f"\nReceived signal {signum}, shutting down...")
+    cleanup_serial()
+    sys.exit(0)
+
 def main() -> None:
+    global _serial_port
+    
+    # Register signal handlers
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    # Register cleanup function for normal exit
+    atexit.register(cleanup_serial)
+    
     print(f"Open {PORT} @ {BAUDRATE} bps")
-    ser = serial.Serial(PORT, BAUDRATE, timeout=TIMEOUT)
-    ser.reset_input_buffer()          # 古いゴミを捨てる
+    
+    try:
+        _serial_port = serial.Serial(PORT, BAUDRATE, timeout=TIMEOUT)
+        _serial_port.reset_input_buffer()          # 古いゴミを捨てる
+        
+        while True:
+            buf = _serial_port.read(FRAME_SIZE)
+            if len(buf) != FRAME_SIZE:
+                continue                  # タイムアウト → 次ループ
 
-    while True:
-        buf = ser.read(FRAME_SIZE)
-        if len(buf) != FRAME_SIZE:
-            continue                  # タイムアウト → 次ループ
+            payload, crlf = buf[:-2], buf[-2:]      # 34 byte + CRLF
+            if crlf != b"\r\n":                     # 区切りが違えば同期ずれ
+                _serial_port.read(1)                         # 1 byte 捨てて復旧試行
+                continue
 
-        payload, crlf = buf[:-2], buf[-2:]      # 34 byte + CRLF
-        if crlf != b"\r\n":                     # 区切りが違えば同期ずれ
-            ser.read(1)                         # 1 byte 捨てて復旧試行
-            continue
+            try:
+                header, sec, msec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
+            except struct.error:
+                continue                            # サイズ不整合 → 次
 
-        try:
-            header, sec, msec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
-        except struct.error:
-            continue                            # サイズ不整合 → 次
+            if header != b"X":
+                continue                            # ヘッダずれ
 
-        if header != b"X":
-            continue                            # ヘッダずれ
+            crc_calc = crc8_maxim(payload[:-1])     # CRC 計算 (CRC バイト除く)
+            if crc_calc != crc_recv:
+                print("CRC error")
+                continue
 
-        crc_calc = crc8_maxim(payload[:-1])     # CRC 計算 (CRC バイト除く)
-        if crc_calc != crc_recv:
-            print("CRC error")
-            continue
-
-        ax, ay, az, gx, gy, gz = vals
-        print(f"{sec}.{msec:03d}  "
-              f"acc=({ax:+.3f},{ay:+.3f},{az:+.3f})  "
-              f"gyro=({gx:+.3f},{gy:+.3f},{gz:+.3f})")
+            ax, ay, az, gx, gy, gz = vals
+            print(f"{sec}.{msec:03d}  "
+                  f"acc=({ax:+.3f},{ay:+.3f},{az:+.3f})  "
+                  f"gyro=({gx:+.3f},{gy:+.3f},{gz:+.3f})")
+                  
+    except serial.SerialException as e:
+        print(f"Serial error: {e}")
+        cleanup_serial()
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        cleanup_serial()
+        sys.exit(1)
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
         print("\nStopped by user")
+        cleanup_serial()
+    except Exception as e:
+        print(f"Error: {e}")
+        cleanup_serial()
+        sys.exit(1)
