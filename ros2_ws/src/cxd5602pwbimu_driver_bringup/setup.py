@@ -25,7 +25,7 @@ setup(
     maintainer_email='ray255ar@gmail.com',
     description='cxd5602pwbimu launch file package',
     license='Apache License 2.0',
-    tests_require=['pytest'],
+    extras_require={'testing': ['pytest']},
     entry_points={
         'console_scripts': [
         ],

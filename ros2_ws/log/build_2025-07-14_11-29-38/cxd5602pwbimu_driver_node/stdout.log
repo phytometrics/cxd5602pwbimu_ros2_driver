@@ -1,0 +1,75 @@
+-- The C compiler identification is Clang 18.1.8
+-- The CXX compiler identification is Clang 18.1.8
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake_auto: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake_auto/cmake)
+-- Found Python3: /Users/yosuke/miniforge3/envs/ros_env/bin/python3 (found version "3.11.13") found components: Interpreter
+-- Found rosidl_generator_c: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Checking for module 'yaml-0.1'
+--   Found yaml-0.1, version 0.2.5
+-- Found rmw_implementation_cmake: 6.1.2 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib (found version "3.5.1")
+-- Found FastRTPS: /Users/yosuke/miniforge3/envs/ros_env/include
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found ament_lint_auto: 0.12.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/cxd5602pwbimu_driver_node/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (7.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/cxd5602pwbimu_driver_node
+[ 16%] Building CXX object CMakeFiles/cxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dir/src/cxd5602pwbimu_driver_node.cpp.o
+[ 33%] Building CXX object CMakeFiles/cxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dir/src/imu_class.cpp.o
+[ 50%] Building CXX object CMakeFiles/cxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dir/src/crc8.cpp.o
+[ 66%] Building CXX object CMakeFiles/cxd5602pwbimu_driver_node_exec.dir/rclcpp_components/node_main_cxd5602pwbimu_driver_node_exec.cpp.o
+[ 83%] Linking CXX executable cxd5602pwbimu_driver_node_exec
+[ 83%] Built target cxd5602pwbimu_driver_node_exec
+[100%] Linking CXX shared library libcxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dylib
+[100%] Built target cxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node
+-- Install configuration: ""
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib/cxd5602pwbimu_driver_node/cxd5602pwbimu_driver_node_exec
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/include
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/include/cxd5602pwbimu_driver_node
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/include/cxd5602pwbimu_driver_node/imu_class.hpp
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/include/cxd5602pwbimu_driver_node/crc8.hpp
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/include/cxd5602pwbimu_driver_node/cxd5602pwbimu_driver_node.hpp
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/lib/libcxd5602pwbimu_driver_node_cxd5602pwbimu_driver_node.dylib
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/ament_index/resource_index/package_run_dependencies/cxd5602pwbimu_driver_node
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/ament_index/resource_index/parent_prefix_path/cxd5602pwbimu_driver_node
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/environment/ament_prefix_path.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/environment/ament_prefix_path.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/environment/path.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/environment/path.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/local_setup.bash
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/local_setup.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/local_setup.zsh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/local_setup.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/package.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/ament_index/resource_index/packages/cxd5602pwbimu_driver_node
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/ament_index/resource_index/rclcpp_components/cxd5602pwbimu_driver_node
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/cmake/cxd5602pwbimu_driver_nodeConfig.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/cmake/cxd5602pwbimu_driver_nodeConfig-version.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_node/share/cxd5602pwbimu_driver_node/package.xml

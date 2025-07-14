@@ -1,0 +1,128 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is Clang 18.1.8
+-- The CXX compiler identification is Clang 18.1.8
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake/cmake)
+-- Found Python3: /Users/yosuke/miniforge3/envs/ros_env/bin/python3 (found version "3.11.13") found components: Interpreter
+-- Found rclcpp: 16.0.11 (/Users/yosuke/miniforge3/envs/ros_env/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/Users/yosuke/miniforge3/envs/ros_env/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Checking for module 'yaml-0.1'
+--   Found yaml-0.1, version 0.2.5
+-- Found rmw_implementation_cmake: 6.1.2 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/Users/yosuke/miniforge3/envs/ros_env/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /opt/homebrew/opt/openssl@3/lib/libcrypto.dylib (found version "3.5.1")
+-- Found FastRTPS: /Users/yosuke/miniforge3/envs/ros_env/include
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found std_msgs: 4.2.4 (/Users/yosuke/miniforge3/envs/ros_env/share/std_msgs/cmake)
+-- Found sensor_msgs: 4.2.4 (/Users/yosuke/miniforge3/envs/ros_env/share/sensor_msgs/cmake)
+-- Found nav_msgs: 4.2.4 (/Users/yosuke/miniforge3/envs/ros_env/share/nav_msgs/cmake)
+-- Found tf2: 0.25.10 (/Users/yosuke/miniforge3/envs/ros_env/share/tf2/cmake)
+-- Found tf2_ros: 0.25.10 (/Users/yosuke/miniforge3/envs/ros_env/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.25.10 (/Users/yosuke/miniforge3/envs/ros_env/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/Users/yosuke/miniforge3/envs/ros_env/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0")
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found ament_lint_auto: 0.12.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_lint_auto/cmake)
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (7.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/imu_trajectory_filter
+[ 25%] Building CXX object CMakeFiles/imu_trajectory_filter.dir/src/imu_trajectory_filter.cpp.o
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/src/imu_trajectory_filter.cpp:1:
+In file included from /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/include/imu_trajectory_filter/imu_trajectory_filter.hpp:4:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/rclcpp.hpp:155:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executors.hpp:21:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executor.hpp:37:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/executor_options.hpp:20:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/memory_strategies.hpp:18:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/memory_strategy.hpp:25:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_executable.hpp:20:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/callback_group.hpp:29:
+In file included from /Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/subscription_base.hpp:32:
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_subscription_callback.hpp:391:7: warning: 'set_deprecated<sensor_msgs::msg::Imu_<std::allocator<void>>>' is deprecated: use 'void(std::shared_ptr<const MessageT>)' instead [-Wdeprecated-declarations]
+  391 |       set_deprecated(static_cast<typename scbth::callback_type>(callback));
+      |       ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/subscription_factory.hpp:94:29: note: in instantiation of function template specialization 'rclcpp::AnySubscriptionCallback<sensor_msgs::msg::Imu_<std::allocator<void>>>::set<std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>>' requested here
+   94 |   any_subscription_callback.set(std::forward<CallbackT>(callback));
+      |                             ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/create_subscription.hpp:122:26: note: in instantiation of function template specialization 'rclcpp::create_subscription_factory<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, sensor_msgs::msg::Imu_<std::allocator<void>>>' requested here
+  122 |   auto factory = rclcpp::create_subscription_factory<MessageT>(
+      |                          ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/create_subscription.hpp:190:26: note: in instantiation of function template specialization 'rclcpp::detail::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::Node, rclcpp::Node, sensor_msgs::msg::Imu_<std::allocator<void>>>' requested here
+  190 |   return rclcpp::detail::create_subscription<
+      |                          ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/node_impl.hpp:99:18: note: in instantiation of function template specialization 'rclcpp::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::Node>' requested here
+   99 |   return rclcpp::create_subscription<MessageT>(
+      |                  ^
+/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/imu_trajectory_filter/src/imu_trajectory_filter.cpp:17:20: note: in instantiation of function template specialization 'rclcpp::Node::create_subscription<sensor_msgs::msg::Imu_<std::allocator<void>>, std::__bind<void (ImuTrajectoryFilter::*)(std::shared_ptr<sensor_msgs::msg::Imu_<std::allocator<void>>>), ImuTrajectoryFilter *, const std::placeholders::__ph<1> &>, std::allocator<void>, rclcpp::Subscription<sensor_msgs::msg::Imu_<std::allocator<void>>>, rclcpp::message_memory_strategy::MessageMemoryStrategy<sensor_msgs::msg::Imu_<std::allocator<void>>>>' requested here
+   17 |   imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
+      |                    ^
+/Users/yosuke/miniforge3/envs/ros_env/include/rclcpp/rclcpp/any_subscription_callback.hpp:405:5: note: 'set_deprecated<sensor_msgs::msg::Imu_<std::allocator<void>>>' has been explicitly marked deprecated here
+  405 |   [[deprecated("use 'void(std::shared_ptr<const MessageT>)' instead")]]
+      |     ^
+1 warning generated.
+[ 50%] Linking CXX shared library libimu_trajectory_filter.dylib
+[ 50%] Built target imu_trajectory_filter
+[ 75%] Building CXX object CMakeFiles/imu_trajectory_filter_node.dir/src/imu_trajectory_filter_node.cpp.o
+[100%] Linking CXX executable imu_trajectory_filter_node
+[100%] Built target imu_trajectory_filter_node
+-- Install configuration: ""
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib/imu_trajectory_filter/libimu_trajectory_filter.dylib
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib/imu_trajectory_filter/imu_trajectory_filter_node
+/Users/yosuke/miniforge3/envs/ros_env/bin/install_name_tool: warning: changes being made to the file will invalidate the code signature in: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib/imu_trajectory_filter/imu_trajectory_filter_node
+[cctools-port]: generating fake signature for '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/lib/imu_trajectory_filter/imu_trajectory_filter_node'
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/include/
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/include//imu_trajectory_filter
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/include//imu_trajectory_filter/imu_trajectory_filter.hpp
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/launch/
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/launch//imu_trajectory_filter.launch.py
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/rviz/
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/rviz//trajectory_view.rviz
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/ament_index/resource_index/package_run_dependencies/imu_trajectory_filter
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/ament_index/resource_index/parent_prefix_path/imu_trajectory_filter
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/environment/ament_prefix_path.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/environment/ament_prefix_path.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/environment/path.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/environment/path.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/local_setup.bash
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/local_setup.sh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/local_setup.zsh
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/local_setup.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/package.dsv
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/ament_index/resource_index/packages/imu_trajectory_filter
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/cmake/imu_trajectory_filterConfig.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/cmake/imu_trajectory_filterConfig-version.cmake
+-- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/imu_trajectory_filter/share/imu_trajectory_filter/package.xml

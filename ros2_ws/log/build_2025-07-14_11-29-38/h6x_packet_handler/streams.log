@@ -1,0 +1,358 @@
+[0.033s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler
+[0.070s] CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[0.070s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.070s]   CMake.
+[0.070s] 
+[0.070s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.070s]   to tell CMake that the project requires at least <min> but has been updated
+[0.070s]   to work with policies introduced by <max> or earlier.
+[0.070s] 
+[0.070s] 
+[0.229s] -- The C compiler identification is Clang 18.1.8
+[0.425s] -- The CXX compiler identification is Clang 18.1.8
+[0.461s] -- Detecting C compiler ABI info
+[0.722s] -- Detecting C compiler ABI info - done
+[0.727s] -- Check for working C compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang - skipped
+[0.728s] -- Detecting C compile features
+[0.728s] -- Detecting C compile features - done
+[0.733s] -- Detecting CXX compiler ABI info
+[1.002s] -- Detecting CXX compiler ABI info - done
+[1.010s] -- Check for working CXX compiler: /Users/yosuke/miniforge3/envs/ros_env/bin/arm64-apple-darwin20.0.0-clang++ - skipped
+[1.010s] -- Detecting CXX compile features
+[1.012s] -- Detecting CXX compile features - done
+[1.038s] -- Found ament_cmake_auto: 1.3.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_cmake_auto/cmake)
+[1.221s] -- Found Python3: /Users/yosuke/miniforge3/envs/ros_env/bin/python3 (found version "3.11.13") found components: Interpreter
+[1.708s] -- Found ament_lint_auto: 0.12.11 (/Users/yosuke/miniforge3/envs/ros_env/share/ament_lint_auto/cmake)
+[2.030s] -- Found gmock sources under '/Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor': C++ tests using 'Google Mock' will be built
+[2.031s] CMake Deprecation Warning at /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/CMakeLists.txt:2 (cmake_minimum_required):
+[2.031s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[2.031s]   CMake.
+[2.031s] 
+[2.031s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[2.031s]   to tell CMake that the project requires at least <min> but has been updated
+[2.031s]   to work with policies introduced by <max> or earlier.
+[2.031s] 
+[2.031s] 
+[2.050s] -- Found gtest sources under '/Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[2.050s] CMake Deprecation Warning at /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/CMakeLists.txt:2 (cmake_minimum_required):
+[2.050s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[2.050s]   CMake.
+[2.050s] 
+[2.050s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[2.051s]   to tell CMake that the project requires at least <min> but has been updated
+[2.051s]   to work with policies introduced by <max> or earlier.
+[2.051s] 
+[2.051s] 
+[2.056s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.056s] -- Configured cppcheck include dirs: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler/include
+[2.056s] -- Configured cppcheck exclude dirs and/or files: 
+[2.058s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.058s] -- Configured cpplint exclude dirs and/or files: 
+[2.059s] -- Added test 'lint_cmake' to check CMake code style
+[2.060s] -- Added test 'xmllint' to check XML markup files
+[2.062s] -- Configuring done (2.0s)
+[2.090s] -- Generating done (0.0s)
+[2.091s] -- Build files have been written to: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler
+[2.096s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/src/h6x_serial_interface/h6x_packet_handler -DCMAKE_INSTALL_PREFIX=/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler
+[2.099s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler -- -j10 -l10
+[2.260s] [  8%] Building CXX object gmock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[2.271s] [ 16%] Building CXX object CMakeFiles/h6x_packet_handler.dir/src/crc_handler.cpp.o
+[2.277s] [ 25%] Building CXX object CMakeFiles/h6x_packet_handler.dir/src/hex_handler.cpp.o
+[2.277s] [ 41%] Building CXX object gmock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[2.277s] [ 41%] Building CXX object gmock/CMakeFiles/gmock.dir/Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/src/gtest-all.cc.o
+[2.600s] [ 50%] Linking CXX shared library libh6x_packet_handler.dylib
+[2.704s] [ 50%] Built target h6x_packet_handler
+[2.971s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/src/gmock_main.cc:32:
+[2.973s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock.h:61:
+[2.973s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-function-mocker.h:39:
+[2.974s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-generated-function-mockers.h:47:
+[2.974s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-spec-builders.h:75:
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:721:3: warning: definition of implicit copy constructor for 'StrEqualityMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.974s]   721 |   GTEST_DISALLOW_ASSIGN_(StrEqualityMatcher);
+[2.974s]       |   ^
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.974s]   682 |   void operator=(type const &) = delete
+[2.974s]       |        ^
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StrEqualityMatcher<std::string>' first required here
+[2.974s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.974s]       |                                                      ^
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StrEqualityMatcher<std::string>>::PolymorphicMatcher' requested here
+[2.974s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.974s]       |          ^
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3813:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StrEqualityMatcher<std::string>>' requested here
+[2.974s]  3813 |   return MakePolymorphicMatcher(
+[2.974s]       |          ^
+[2.974s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:778:3: warning: definition of implicit copy constructor for 'HasSubstrMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.974s]   778 |   GTEST_DISALLOW_ASSIGN_(HasSubstrMatcher);
+[2.975s]       |   ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.975s]   682 |   void operator=(type const &) = delete
+[2.975s]       |        ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::HasSubstrMatcher<std::string>' first required here
+[2.975s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.975s]       |                                                      ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::string>>::PolymorphicMatcher' requested here
+[2.975s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3842:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::HasSubstrMatcher<std::string>>' requested here
+[2.975s]  3842 |   return MakePolymorphicMatcher(
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:835:3: warning: definition of implicit copy constructor for 'StartsWithMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.975s]   835 |   GTEST_DISALLOW_ASSIGN_(StartsWithMatcher);
+[2.975s]       |   ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.975s]   682 |   void operator=(type const &) = delete
+[2.975s]       |        ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StartsWithMatcher<std::string>' first required here
+[2.975s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.975s]       |                                                      ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::string>>::PolymorphicMatcher' requested here
+[2.975s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3849:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StartsWithMatcher<std::string>>' requested here
+[2.975s]  3849 |   return MakePolymorphicMatcher(
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:891:3: warning: definition of implicit copy constructor for 'EndsWithMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.975s]   891 |   GTEST_DISALLOW_ASSIGN_(EndsWithMatcher);
+[2.975s]       |   ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.975s]   682 |   void operator=(type const &) = delete
+[2.975s]       |        ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::EndsWithMatcher<std::string>' first required here
+[2.975s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.975s]       |                                                      ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::string>>::PolymorphicMatcher' requested here
+[2.975s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3856:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::EndsWithMatcher<std::string>>' requested here
+[2.975s]  3856 |   return MakePolymorphicMatcher(internal::EndsWithMatcher<std::string>(suffix));
+[2.975s]       |          ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:721:3: warning: definition of implicit copy constructor for 'StrEqualityMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.975s]   721 |   GTEST_DISALLOW_ASSIGN_(StrEqualityMatcher);
+[2.975s]       |   ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.975s]   682 |   void operator=(type const &) = delete
+[2.975s]       |        ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StrEqualityMatcher<std::wstring>' first required here
+[2.975s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.975s]       |                                                      ^
+[2.975s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StrEqualityMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[2.976s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3865:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StrEqualityMatcher<std::wstring>>' requested here
+[2.976s]  3865 |   return MakePolymorphicMatcher(
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:778:3: warning: definition of implicit copy constructor for 'HasSubstrMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.976s]   778 |   GTEST_DISALLOW_ASSIGN_(HasSubstrMatcher);
+[2.976s]       |   ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.976s]   682 |   void operator=(type const &) = delete
+[2.976s]       |        ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::HasSubstrMatcher<std::wstring>' first required here
+[2.976s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.976s]       |                                                      ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[2.976s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3894:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::HasSubstrMatcher<std::wstring>>' requested here
+[2.976s]  3894 |   return MakePolymorphicMatcher(
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:835:3: warning: definition of implicit copy constructor for 'StartsWithMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.976s]   835 |   GTEST_DISALLOW_ASSIGN_(StartsWithMatcher);
+[2.976s]       |   ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.976s]   682 |   void operator=(type const &) = delete
+[2.976s]       |        ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StartsWithMatcher<std::wstring>' first required here
+[2.976s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.976s]       |                                                      ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[2.976s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3901:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StartsWithMatcher<std::wstring>>' requested here
+[2.976s]  3901 |   return MakePolymorphicMatcher(
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:891:3: warning: definition of implicit copy constructor for 'EndsWithMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[2.976s]   891 |   GTEST_DISALLOW_ASSIGN_(EndsWithMatcher);
+[2.976s]       |   ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[2.976s]   682 |   void operator=(type const &) = delete
+[2.976s]       |        ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::EndsWithMatcher<std::wstring>' first required here
+[2.976s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[2.976s]       |                                                      ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[2.976s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[2.976s]       |          ^
+[2.976s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3908:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::EndsWithMatcher<std::wstring>>' requested here
+[2.976s]  3908 |   return MakePolymorphicMatcher(
+[2.976s]       |          ^
+[3.003s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/src/gmock-all.cc:39:
+[3.004s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock.h:61:
+[3.004s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-function-mocker.h:39:
+[3.004s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-generated-function-mockers.h:47:
+[3.004s] In file included from /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-spec-builders.h:75:
+[3.004s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:721:3: warning: definition of implicit copy constructor for 'StrEqualityMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.004s]   721 |   GTEST_DISALLOW_ASSIGN_(StrEqualityMatcher);
+[3.004s]       |   ^
+[3.004s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.004s]   682 |   void operator=(type const &) = delete
+[3.004s]       |        ^
+[3.004s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StrEqualityMatcher<std::string>' first required here
+[3.005s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.005s]       |                                                      ^
+[3.005s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StrEqualityMatcher<std::string>>::PolymorphicMatcher' requested here
+[3.005s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.005s]       |          ^
+[3.005s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3813:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StrEqualityMatcher<std::string>>' requested here
+[3.005s]  3813 |   return MakePolymorphicMatcher(
+[3.005s]       |          ^
+[3.005s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:778:3: warning: definition of implicit copy constructor for 'HasSubstrMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.005s]   778 |   GTEST_DISALLOW_ASSIGN_(HasSubstrMatcher);
+[3.005s]       |   ^
+[3.005s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.005s]   682 |   void operator=(type const &) = delete
+[3.005s]       |        ^
+[3.005s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::HasSubstrMatcher<std::string>' first required here
+[3.005s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.005s]       |                                                      ^
+[3.006s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::string>>::PolymorphicMatcher' requested here
+[3.006s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.006s]       |          ^
+[3.006s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3842:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::HasSubstrMatcher<std::string>>' requested here
+[3.006s]  3842 |   return MakePolymorphicMatcher(
+[3.006s]       |          ^
+[3.006s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:835:3: warning: definition of implicit copy constructor for 'StartsWithMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.007s]   835 |   GTEST_DISALLOW_ASSIGN_(StartsWithMatcher);
+[3.007s]       |   ^
+[3.007s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.007s]   682 |   void operator=(type const &) = delete
+[3.007s]       |        ^
+[3.007s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StartsWithMatcher<std::string>' first required here
+[3.007s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.007s]       |                                                      ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::string>>::PolymorphicMatcher' requested here
+[3.008s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.008s]       |          ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3849:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StartsWithMatcher<std::string>>' requested here
+[3.008s]  3849 |   return MakePolymorphicMatcher(
+[3.008s]       |          ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:891:3: warning: definition of implicit copy constructor for 'EndsWithMatcher<std::string>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.008s]   891 |   GTEST_DISALLOW_ASSIGN_(EndsWithMatcher);
+[3.008s]       |   ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.008s]   682 |   void operator=(type const &) = delete
+[3.008s]       |        ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::EndsWithMatcher<std::string>' first required here
+[3.008s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.008s]       |                                                      ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::string>>::PolymorphicMatcher' requested here
+[3.008s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.008s]       |          ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3856:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::EndsWithMatcher<std::string>>' requested here
+[3.008s]  3856 |   return MakePolymorphicMatcher(internal::EndsWithMatcher<std::string>(suffix));
+[3.008s]       |          ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:721:3: warning: definition of implicit copy constructor for 'StrEqualityMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.008s]   721 |   GTEST_DISALLOW_ASSIGN_(StrEqualityMatcher);
+[3.008s]       |   ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.008s]   682 |   void operator=(type const &) = delete
+[3.008s]       |        ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StrEqualityMatcher<std::wstring>' first required here
+[3.008s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.008s]       |                                                      ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StrEqualityMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[3.008s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.008s]       |          ^
+[3.008s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3865:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StrEqualityMatcher<std::wstring>>' requested here
+[3.009s]  3865 |   return MakePolymorphicMatcher(
+[3.009s]       |          ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:778:3: warning: definition of implicit copy constructor for 'HasSubstrMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.009s]   778 |   GTEST_DISALLOW_ASSIGN_(HasSubstrMatcher);
+[3.009s]       |   ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.009s]   682 |   void operator=(type const &) = delete
+[3.009s]       |        ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::HasSubstrMatcher<std::wstring>' first required here
+[3.009s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_im8p warningls) generated .
+[3.009s] {}
+[3.009s]       |                                                      ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[3.009s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.009s]       |          ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3894:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::HasSubstrMatcher<std::wstring>>' requested here
+[3.009s]  3894 |   return MakePolymorphicMatcher(
+[3.009s]       |          ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:835:3: warning: definition of implicit copy constructor for 'StartsWithMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.009s]   835 |   GTEST_DISALLOW_ASSIGN_(StartsWithMatcher);
+[3.009s]       |   ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.009s]   682 |   void operator=(type const &) = delete
+[3.009s]       |        ^
+[3.009s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::StartsWithMatcher<std::wstring>' first required here
+[3.010s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.010s]       |                                                      ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[3.010s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.010s]       |          ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3901:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::StartsWithMatcher<std::wstring>>' requested here
+[3.010s]  3901 |   return MakePolymorphicMatcher(
+[3.010s]       |          ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:891:3: warning: definition of implicit copy constructor for 'EndsWithMatcher<std::wstring>' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+[3.010s]   891 |   GTEST_DISALLOW_ASSIGN_(EndsWithMatcher);
+[3.010s]       |   ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/internal/gtest-port.h:682:8: note: expanded from macro 'GTEST_DISALLOW_ASSIGN_'
+[3.010s]   682 |   void operator=(type const &) = delete
+[3.010s]       |        ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:456:54: note: in implicit copy constructor for 'testing::internal::EndsWithMatcher<std::wstring>' first required here
+[3.010s]   456 |   explicit PolymorphicMatcher(const Impl& an_impl) : impl_(an_impl) {}
+[3.010s]       |                                                      ^
+[3.010s] /Users/yosuke/miniforge3/envs/ros_env/src/gtest_vendor/include/gtest/gtest-matchers.h:514:10: note: in instantiation of member function 'testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::wstring>>::PolymorphicMatcher' requested here
+[3.010s]   514 |   return PolymorphicMatcher<Impl>(impl);
+[3.011s]       |          ^
+[3.011s] /Users/yosuke/miniforge3/envs/ros_env/src/gmock_vendor/include/gmock/gmock-matchers.h:3908:10: note: in instantiation of function template specialization 'testing::MakePolymorphicMatcher<testing::internal::EndsWithMatcher<std::wstring>>' requested here
+[3.011s]  3908 |   return MakePolymorphicMatcher(
+[3.011s]       |          ^
+[3.044s] [ 58%] Linking CXX static library libgmock_main.a
+[3.188s] [ 58%] Built target gmock_main
+[3.515s] 8 warnings generated.
+[5.086s] [ 66%] Linking CXX static library libgmock.a
+[5.197s] [ 66%] Built target gmock
+[5.289s] [ 83%] Building CXX object CMakeFiles/test_crc_handler.dir/test/src/test_crc_handler.cpp.o
+[5.289s] [ 83%] Building CXX object CMakeFiles/test_hex_handler.dir/test/src/test_hex_handler.cpp.o
+[5.919s] [ 91%] Linking CXX executable test_crc_handler
+[6.020s] [ 91%] Built target test_crc_handler
+[6.358s] [100%] Linking CXX executable test_hex_handler
+[6.463s] [100%] Built target test_hex_handler
+[6.479s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --build /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler -- -j10 -l10
+[6.907s] Invoking command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --install /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler
+[6.919s] -- Install configuration: ""
+[6.919s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include
+[6.919s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler
+[6.919s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/hex_handler.hpp
+[6.920s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/packet_state_base.hpp
+[6.920s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/rx_packet_base.hpp
+[6.920s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/crc_handler.hpp
+[6.920s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_ascii_packet.hpp
+[6.921s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/rx_ascii_packet.hpp
+[6.921s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_packet_base.hpp
+[6.925s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/include/h6x_packet_handler/tx_rx_packet_base.hpp
+[6.925s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/lib/libh6x_packet_handler.dylib
+[6.927s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/package_run_dependencies/h6x_packet_handler
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/parent_prefix_path/h6x_packet_handler
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/ament_prefix_path.sh
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/ament_prefix_path.dsv
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/path.sh
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/environment/path.dsv
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.bash
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.sh
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.zsh
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/local_setup.dsv
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/package.dsv
+[6.928s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/ament_index/resource_index/packages/h6x_packet_handler
+[6.929s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.929s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/ament_cmake_export_libraries-extras.cmake
+[6.929s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/h6x_packet_handlerConfig.cmake
+[6.929s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/cmake/h6x_packet_handlerConfig-version.cmake
+[6.929s] -- Installing: /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/h6x_packet_handler/share/h6x_packet_handler/package.xml
+[6.929s] Invoked command in '/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/install/cxd5602pwbimu_driver_bringup:/Users/yosuke/miniforge3/envs/ros_env CONDA_PROMPT_MODIFIER=(ros_env) SHLVL=2 _=/Users/yosuke/miniforge3/envs/ros_env/bin/env /Users/yosuke/miniforge3/envs/ros_env/bin/cmake --install /Users/yosuke/gits/cxd5602pwbimu_ros2_driver/ros2_ws/build/h6x_packet_handler
