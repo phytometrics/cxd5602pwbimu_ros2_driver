@@ -22,7 +22,7 @@ import sys
 import atexit
 
 # ========= 環境設定 =========================================
-PORT     = "/dev/cu.usbserial-1130"   # ← Spresense のポート名に変更
+PORT     = "/dev/cu.usbserial-1140"   # ← Spresense のポート名に変更
 BAUDRATE = 115_200
 TIMEOUT  = 1.0                        # [s] read() タイムアウト
 # ===========================================================
@@ -72,6 +72,7 @@ def main() -> None:
         
         while True:
             buf = _serial_port.read(FRAME_SIZE)
+            # print(buf)
             if len(buf) != FRAME_SIZE:
                 continue                  # タイムアウト → 次ループ
 
