@@ -11,14 +11,14 @@ from dash import dcc, html, Input, Output
 import plotly.graph_objects as go
 
 # ========= 環境設定 =========================================
-PORT     = "/dev/cu.usbserial-1140" 
+PORT     = "/dev/cu.usbserial-110" 
 BAUDRATE = 115_200
 
 class SpresenseIMUProcessor:
     """IMU処理専用クラス - ビジュアライゼーションとは完全に分離"""
     
-    def __init__(self, frequency=1920.0, gain=0.1):  # gainを大幅に増加
-        self.madgwick = Madgwick(frequency=frequency, gain=gain)
+    def __init__(self, frequency=60.0):  # gainを大幅に増加
+        self.madgwick = Madgwick(frequency=frequency)
         self.q_current = np.array([1.0, 0.0, 0.0, 0.0])
         self.imu_reader = IMUReader(port=PORT, baudrate=BAUDRATE)
         self.static_threshold = 0.001  # より小さい閾値に変更
@@ -43,14 +43,14 @@ class SpresenseIMUProcessor:
             except Exception as e:
                 print(f"Callback error: {e}")
     
-    def process_imu_data(self, sec, msec, ax, ay, az, gx, gy, gz):
+    def process_imu_data(self, sec, usec, ax, ay, az, gx, gy, gz):
         """IMUデータを処理してquaternionを更新"""
         # Debug: Print raw gyro values to check for non-zero data
         if abs(gx) > 0.01 or abs(gy) > 0.01 or abs(gz) > 0.01:
             print(f"DEBUG: Non-zero gyro detected: gx={gx:.6f}, gy={gy:.6f}, gz={gz:.6f}")
         
         acc_ms2 = np.array([ax, ay, az])
-        gyro_rads = np.array([gx, gy, gz]) * np.pi / 180.0
+        gyro_rads = np.array([gx, gy, gz])# * np.pi / 180.0
         
         # Debug: Check if conversion causes zeros
         if np.any(np.abs(gyro_rads) > 0.001):
@@ -77,7 +77,7 @@ class SpresenseIMUProcessor:
             )
         
         # コールバックに通知
-        timestamp = f"{sec}.{msec:03d}"
+        timestamp = f"{sec}.{usec:03d}"
         raw_data = {
             'acc': [ax, ay, az],
             'gyro': [gx, gy, gz],
@@ -117,11 +117,11 @@ class SpresenseIMUProcessor:
         
         try:
             with self.imu_reader as reader:
-                for sec, msec, ax, ay, az, gx, gy, gz in reader.stream_data():
-                    q = self.process_imu_data(sec, msec, ax, ay, az, gx, gy, gz)
+                for sec, usec, ax, ay, az, gx, gy, gz in reader.stream_data():
+                    q = self.process_imu_data(sec, usec, ax, ay, az, gx, gy, gz)
                     roll, pitch, yaw = self.quaternion_to_euler(q)
                     
-                    print(f"{sec}.{msec:03d} "
+                    print(f"{sec}.{usec:03d} "
                           f"acc={ax:+.3f},{ay:+.3f},{az:+.3f} "
                           f"gyro={gx:+.3f},{gy:+.3f},{gz:+.3f} "
                           f"q=({q[0]:+.3f},{q[1]:+.3f},{q[2]:+.3f},{q[3]:+.3f}) "
@@ -279,7 +279,7 @@ class PlotlyIMUVisualizer:
             html.P(f"Y: {ay:+.3f}"),
             html.P(f"Z: {az:+.3f}"),
             html.Hr(),
-            html.H4("Gyroscope (°/s)"),
+            html.H4("Gyroscope (rad/s)"),
             html.P(f"X: {gx:+.3f}"),
             html.P(f"Y: {gy:+.3f}"),
             html.P(f"Z: {gz:+.3f}"),

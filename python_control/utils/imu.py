@@ -4,7 +4,7 @@ Spresense CXD5602 Multi-IMU 受信スクリプト  (CRC 検証付き)
 フレーム構造 (34 byte 固定)
   0     : 'X'                         ヘッダ
   1-4   : uint32  sec                計測時刻 (秒)
-  5-8   : uint32  msec               計測時刻 (ミリ秒)
+  5-8   : uint32  usec               計測時刻 (マイクロ秒)
   9-20  : float32 ax,ay,az           加速度  [m/s²] (左手座標、ファームで符号反転済)
  21-32  : float32 gx,gy,gz           角速度  [deg/s] (一部符号反転済)
  33     : uint8   CRC8               Dallas/Maxim 方式 (poly 0x31, init 0x00)
@@ -19,6 +19,7 @@ import crc8
 import signal
 import sys
 import atexit
+from loguru import logger
 
 # ========= 環境設定 =========================================
 PORT     = "/dev/cu.usbserial-1140"   # ← Spresense のポート名に変更
@@ -27,7 +28,7 @@ TIMEOUT  = 1.0                        # [s] read() タイムアウト
 # ===========================================================
 
 # 34 byte ペイロードを unpack するための Struct
-STRUCT_PAYLOAD = struct.Struct("<cII6fB")   # 'X' sec msec ax ay az gx gy gz crc
+STRUCT_PAYLOAD = struct.Struct("<cII6fB")   # 'X' sec usec ax ay az gx gy gz crc
 FRAME_SIZE     = 36                         # 34 + CRLF(2)
 
 def crc8_maxim(data: bytes) -> int:
@@ -43,13 +44,13 @@ def cleanup_serial():
     """Clean up serial port resources"""
     global _serial_port
     if _serial_port and _serial_port.is_open:
-        print("\nClosing serial port...")
+        logger.info("Closing serial port...")
         _serial_port.close()
         _serial_port = None
 
 def signal_handler(signum, frame):
     """Handle SIGINT and SIGTERM signals"""
-    print(f"\nReceived signal {signum}, shutting down...")
+    logger.info(f"Received signal {signum}, shutting down...")
     cleanup_serial()
     sys.exit(0)
 
@@ -67,19 +68,19 @@ class IMUReader:
         atexit.register(self.close)
     
     def _signal_handler(self, signum, frame):
-        print(f"\nReceived signal {signum}, shutting down...")
+        logger.info(f"Received signal {signum}, shutting down...")
         self.close()
         sys.exit(0)
         
     def open(self):
         if self.serial_port is None or not self.serial_port.is_open:
-            print(f"Open {self.port} @ {self.baudrate} bps")
+            logger.info(f"Open {self.port} @ {self.baudrate} bps")
             self.serial_port = serial.Serial(self.port, self.baudrate, timeout=self.timeout)
             self.serial_port.reset_input_buffer()
             
     def close(self):
         if self.serial_port and self.serial_port.is_open:
-            print("\nClosing serial port...")
+            logger.info("Closing serial port...")
             self.serial_port.close()
             self.serial_port = None
             
@@ -97,7 +98,7 @@ class IMUReader:
             return None
             
         try:
-            header, sec, msec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
+            header, sec, usec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
         except struct.error:
             return None
             
@@ -106,11 +107,11 @@ class IMUReader:
             
         crc_calc = crc8_maxim(payload[:-1])
         if crc_calc != crc_recv:
-            print("CRC error")
+            logger.warning("CRC error")
             return None
             
         ax, ay, az, gx, gy, gz = vals
-        return sec, msec, ax, ay, az, gx, gy, gz
+        return sec, usec, ax, ay, az, gx, gy, gz
         
     def stream_data(self):
         self.open()
@@ -120,11 +121,11 @@ class IMUReader:
                 if data is not None:
                     yield data
         except serial.SerialException as e:
-            print(f"Serial error: {e}")
+            logger.error(f"Serial error: {e}")
             self.close()
             raise
         except Exception as e:
-            print(f"Unexpected error: {e}")
+            logger.error(f"Unexpected error: {e}")
             self.close()
             raise
             
@@ -144,7 +145,7 @@ def get_imu_raw_output():
     # Register cleanup function for normal exit
     atexit.register(cleanup_serial)
     
-    print(f"Open {PORT} @ {BAUDRATE} bps")
+    logger.info(f"Open {PORT} @ {BAUDRATE} bps")
     
     try:
         _serial_port = serial.Serial(PORT, BAUDRATE, timeout=TIMEOUT)
@@ -162,7 +163,7 @@ def get_imu_raw_output():
                 continue
 
             try:
-                header, sec, msec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
+                header, sec, usec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
             except struct.error:
                 continue                            # サイズ不整合 → 次
 
@@ -171,20 +172,20 @@ def get_imu_raw_output():
 
             crc_calc = crc8_maxim(payload[:-1])     # CRC 計算 (CRC バイト除く)
             if crc_calc != crc_recv:
-                print("CRC error")
+                logger.warning("CRC error, skiping frame")
                 continue
 
             ax, ay, az, gx, gy, gz = vals
-            # print(f"{sec}.{msec:03d}  "
+            # print(f"{sec}.{usec:03d}  "
             #       f"acc=({ax:+.3f},{ay:+.3f},{az:+.3f})  "
             #       f"gyro=({gx:+.3f},{gy:+.3f},{gz:+.3f})")
-            return sec, msec, ax, ay, az, gx, gy, gz
+            return sec, usec, ax, ay, az, gx, gy, gz
                   
     except serial.SerialException as e:
-        print(f"Serial error: {e}")
+        logger.error(f"Serial error: {e}")
         cleanup_serial()
         sys.exit(1)
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        logger.error(f"Unexpected error: {e}")
         cleanup_serial()
         sys.exit(1)

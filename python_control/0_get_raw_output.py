@@ -5,7 +5,7 @@ Spresense CXD5602 Multi-IMU 受信スクリプト  (CRC 検証付き)
 フレーム構造 (34 byte 固定)
   0     : 'X'                         ヘッダ
   1-4   : uint32  sec                計測時刻 (秒)
-  5-8   : uint32  msec               計測時刻 (ミリ秒)
+  5-8   : uint32  usec               計測時刻 (ミリ秒)
   9-20  : float32 ax,ay,az           加速度  [m/s²] (左手座標、ファームで符号反転済)
  21-32  : float32 gx,gy,gz           角速度  [deg/s] (一部符号反転済)
  33     : uint8   CRC8               Dallas/Maxim 方式 (poly 0x31, init 0x00)
@@ -22,13 +22,13 @@ import sys
 import atexit
 
 # ========= 環境設定 =========================================
-PORT     = "/dev/cu.usbserial-1140"   # ← Spresense のポート名に変更
+PORT     = "/dev/cu.usbserial-110"   # ← Spresense のポート名に変更
 BAUDRATE = 115_200
 TIMEOUT  = 1.0                        # [s] read() タイムアウト
 # ===========================================================
 
 # 34 byte ペイロードを unpack するための Struct
-STRUCT_PAYLOAD = struct.Struct("<cII6fB")   # 'X' sec msec ax ay az gx gy gz crc
+STRUCT_PAYLOAD = struct.Struct("<cII6fB")   # 'X' sec usec ax ay az gx gy gz crc
 FRAME_SIZE     = 36                         # 34 + CRLF(2)
 
 def crc8_maxim(data: bytes) -> int:
@@ -82,7 +82,7 @@ def main() -> None:
                 continue
 
             try:
-                header, sec, msec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
+                header, sec, usec, *vals, crc_recv = STRUCT_PAYLOAD.unpack(payload)
             except struct.error:
                 continue                            # サイズ不整合 → 次
 
@@ -95,7 +95,7 @@ def main() -> None:
                 continue
 
             ax, ay, az, gx, gy, gz = vals
-            print(f"{sec}.{msec:03d}  "
+            print(f"{sec}.{usec:03d}  "
                   f"acc=({ax:+.3f},{ay:+.3f},{az:+.3f})  "
                   f"gyro=({gx:+.3f},{gy:+.3f},{gz:+.3f})")
                   

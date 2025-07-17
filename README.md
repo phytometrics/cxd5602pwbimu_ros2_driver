@@ -400,3 +400,6 @@ alias usbreset='ID=$(readlink -f /sys/class/tty/ttyUSB0 | sed "s|.*/||"); echo -
 
 
   sudo apt install ros-humble-rviz-imu-plugin 
+
+
+
